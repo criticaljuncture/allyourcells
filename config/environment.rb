@@ -17,7 +17,7 @@ Rails::Initializer.run do |config|
   # Specify gems that this application depends on and have them installed with rake gems:install
   config.gem 'paperclip', :version => '2.3.1.1'
   config.gem 'exifr',     :version => '0.10.9'
-  
+  require 'net/imap'
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
