@@ -1,3 +1,4 @@
+# see http://groups.google.com/group/comp.lang.ruby/msg/035581d6c60034be
 class EmailMessage
   class Part
     def initialize(message_id, raw_part, index)
@@ -25,8 +26,8 @@ class EmailMessage
   def self.connect(options)
     options.symbolize_keys!
     
-    @connection = Net::IMAP.new(options[:server])         # 'imap.emailsrvr.com'
-    @connection.login(options[:user], options[:password]) # 'submit@allyourcells.com', 'bucksaw8poseur'
+    @connection = Net::IMAP.new(options[:server])
+    @connection.login(options[:user], options[:password]) 
     @connection.select('Inbox')
   end
   
@@ -38,7 +39,7 @@ class EmailMessage
     if conditions.blank?
       conditions = ["SINCE", "1-Jan-1969"]
     end
-    raw_messages = connection.search(conditions)
+    raw_messages = EmailMessage.connection.search(conditions)
     
     raw_messages.map{ |raw_msg| new(raw_msg) }
   end
@@ -71,11 +72,7 @@ class EmailMessage
   private
   
   def message
-    connection.fetch(@message_id, ["ENVELOPE", "UID","BODY"] )[0]
+    EmailMessage.connection.fetch(@message_id, ["ENVELOPE", "UID","BODY"] )[0]
   end
   memoize :message
-  
-  def connection
-    self.class.connection
-  end
 end
