@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:v="urn:schemas-microsoft-com:vml">
+
+<head>
+  <title>All Your Cells <%= " | #{yield :title}" if yield(:title) %></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="Andrew Carpenter, Bob Burbach, Dave Augustine" />
+  
+  <%= stylesheet_link_tag "screen", :media => :screen %>
+  <%= stylesheet_link_tag "trifecta", :media => :screen %>
+  <%= stylesheet_link_tag "utility", :media => :screen %>
+  <%= stylesheet_link_tag "form", :media => :screen %>
+  
+  <%= javascript_include_tag 'jquery.js'                %>
+  <%= javascript_include_tag 'jquery-ui.js'             %>
+  <%= javascript_include_tag 'jrails.js'                %>
+  <%= javascript_include_tag 'application.js'           %>
+
+  <%= yield :javascripts %>
+
+</head>
+<body>
+
+  <!-- WRAPPER -->
+  <div id="wrapper" class="group">
+    
+    <!-- HEADER -->
+    <div id="header">
+      
+    </div>
+    <%= render :partial => 'layouts/navigation' %>
+    <!-- HEADER end -->
+  
+    <!-- MAIN -->
+    <div id="main" class="group<%= ' cols' if yield :sidebar %>">
+      
+      <% unless flash[:notice].blank? %>
+        <div class="alert">
+          <div class="confirm"><%= flash[:notice] %></div>
+        </div>
+      <% end %>
+
+      <% unless flash[:error].blank? %>
+      <div class="alert">
+        <div class="error"><%= flash[:error] %></div>
+      </div>
+      <% end %>
+    
+      <!-- content -->
+      <div class="content">
+          <% if yield :precolumn %>
+            <div class="precolumn">
+              <%= yield :precolumn %>
+            </div>
+          <% end %>
+          
+          <div class="col1 <%= yield :column_class %>">
+            <%= yield %>
+          </div>
+          
+          <% if yield :sidebar %>
+          <div class="col2 <%= yield :column_class %>">
+            <div class="sidebar">
+              <%= yield :sidebar %>
+            </div>
+          </div>
+          <% end %>
+          
+      </div><!-- content end -->
+      
+    </div>
+    <!-- MAIN end -->
+
+  </div>
+  <!-- WRAPPER end -->
+
+
+  <!-- FOOTER -->
+  <div id="footer">
+    <%= render :partial => 'layouts/footer' %>
+  </div>
+  <!-- FOOTER end -->
+    
+  <%= render :partial => 'layouts/google_analytics' %>  
+</body>
+</html>
