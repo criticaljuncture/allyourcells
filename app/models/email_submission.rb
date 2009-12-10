@@ -1,4 +1,5 @@
 class EmailSubmission < EmailMessage
+  include GeoUtils
   attr_accessor :errors
   
   def initialize(message_id )
@@ -94,9 +95,4 @@ class EmailSubmission < EmailMessage
     exif = EXIFR::JPEG.new(StringIO.new(jpeg_image_content))
   end
   memoize :exif_data
-  
-  def sexagesimal_to_decimal_degrees(degrees, minutes, seconds)
-    degrees + (minutes / 60) + (seconds / 3600)
-  end
-  
 end
