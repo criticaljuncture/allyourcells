@@ -9,6 +9,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :account, :controller => "users"
   map.resources :users
   
+  # CELL SITES
+  map.resources :cell_sites
+  
   # SPECIAL PAGES
   map.root :controller => 'special', :action => 'home'
   map.about 'about', :controller => 'special', :action => 'about'
