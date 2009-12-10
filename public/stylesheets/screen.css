@@ -10,10 +10,63 @@ fieldset, form, label, legend,
 caption, tbody, tfoot, thead {margin: 0; padding: 0; border: 0;}
 
 html {
-	background: url(/images/bg.gif) repeat left top;
-}
-
+  background: url(/images/bg.gif) repeat left top;
+  }
 body {
-	background: url(/images/mask.png) repeat-x left bottom;
+  background: url(/images/header_bg.gif) repeat-x left -35px;
+}
+#wrapper {  
+  margin: 0 auto;
+  position: relative;  
+  width: 980px;
+  }
+
+#header { 
+  display: block; 
+  height: 158px; 
+  }
+  
+#header h1.logo a{
+  background: url(/images/logo.png) no-repeat left top;
+  display: block;
+  height: 100px;
+  left: 10px;
+  position: absolute;
+  text-indent: -9999px;  
+  top: 25px;
+  width: 388px; 
+  }  
+
+#nav {
+  background: url(/images/navbar.png) no-repeat;
+  display: block;
+  height: 74px;
+  margin: 0 auto 20px auto;
+}
+#nav ul {
+  list-style: none inside;
+}
+#main {
+  background: url(/images/content_bg.png) repeat-y left top;
+  margin: 0 auto;
+  padding: 0 0 0 0;
+  position: relative;  
+  width: 900px;
+}
+.top {
+  background: url(/images/content_top.png) no-repeat left top;
+  display: block;
+  height: 27px;
+  margin: 0 auto;
+  width: 900px;
+}
+#main .content {
+  margin: 0 auto;
+  width: 870px;
+  
 }
 
+
+#footer {
+  background: url(/images/mask.png) repeat-x left bottom; 
+}  
