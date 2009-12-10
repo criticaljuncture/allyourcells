@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091209070559) do
+ActiveRecord::Schema.define(:version => 20091210161339) do
 
   create_table "cell_sites", :force => true do |t|
     t.float    "lat"
@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(:version => 20091209070559) do
     t.integer  "updater_id"
     t.string   "photo_md5_hash"
     t.integer  "email_uid"
+    t.string   "licensee"
+    t.string   "callsign"
+    t.string   "location_number"
+    t.string   "address"
+    t.string   "city"
+    t.string   "county"
+    t.string   "state"
+    t.string   "nepa"
+    t.string   "qzone"
+    t.string   "tower_reg"
+    t.float    "supporting_structure_height"
+    t.float    "structure_height"
+    t.string   "structure_type"
+    t.string   "license_id"
   end
 
   create_table "users", :force => true do |t|
