@@ -2,3 +2,5 @@ tmp
 log
 data
 config/database.yml
+config/mail.yml
+public/system
