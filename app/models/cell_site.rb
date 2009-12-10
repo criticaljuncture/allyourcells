@@ -11,17 +11,4 @@ class CellSite < ActiveRecord::Base
     
     self.photo = temp_file
   end
-  
-  # before_validation :store_photo_md5
-  # 
-  # private
-  # 
-  # def store_photo_md5
-  #   self.photo_md5_hash = if photo.path
-  #                           raw = `openssl md5 #{photo.path}`
-  #                           raw.sub(/^.*= /, '').chomp
-  #                         else
-  #                           nil
-  #                         end
-  # end
 end
