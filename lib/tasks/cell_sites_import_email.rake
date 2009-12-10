@@ -1,4 +1,4 @@
-namespace :cells do
+namespace :cell_sites do
   namespace :import do
     task :email => :environment do
       config = YAML::load(File.open("#{RAILS_ROOT}/config/mail.yml"))
