@@ -13,7 +13,7 @@ html {
   background: url(/images/bg.gif) repeat left top;
   }
 body {
-  background: url(/images/header_bg.gif) repeat-x left -35px;
+  background: url(/images/header.png) repeat-x left -35px;
 }
 #wrapper {  
   margin: 0 auto;
@@ -34,14 +34,14 @@ body {
   position: absolute;
   text-indent: -9999px;  
   top: 25px;
-  width: 388px; 
+  width: 442px; 
   }  
 
 #nav {
   background: url(/images/navbar.png) no-repeat;
   display: block;
-  height: 74px;
-  margin: 0 auto 20px auto;
+  height: 64px;
+  margin: 0 auto 0 auto;
 }
 #nav ul {
   list-style: none inside;
