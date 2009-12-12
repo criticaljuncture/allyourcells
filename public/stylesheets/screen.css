@@ -41,30 +41,31 @@ body {
 
 #login {
   background: #e1e2db;
+  color: #cccdc3;  
   border: 1px solid #bebead;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px; /* future proofing */
   -khtml-border-radius: 10px; /* for old Konqueror browsers */
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;  
   padding: 15px 10px 5px 10px;
   position: absolute;
   right: 20px;
+  text-transform: uppercase;
+  text-decoration: none;    
   top: -10px;
 }
-
-#login a {
-  background: url(/images/login_arrow.gif) no-repeat right top;
-  color: #cccdc3;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  padding-right: 15px;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-#login a:hover {
-  background-position: right -30px;
+#login:hover {
   color: #9a9b91;
+}
+#login:hover span {
+  background-position: right -30px;
+}
+#login span {
+  background: url(/images/login_arrow.gif) no-repeat right top;
+  padding-right: 15px;
 }
 /* need to fix IE6 */
 #nav {
