@@ -6,12 +6,24 @@
 @font-face {
 	font-family: 'nevisBold';
 	src: url('nevis.eot');
-	src: local('nevis Bold'), local('nevis-Bold'), url('nevis.woff') format('woff'), url('nevis.ttf') format('truetype'), url('nevis.svg#nevis-Bold') format('svg');
+	src: local('nevis Bold'), local('nevis-Bold'), url('nevis.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'AllerLightRegular';
+	src: url('Aller_Lt.eot');
+	src: local('Aller Light Regular'), local('Aller-Light'), url('Aller_Lt.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'AllerRegular';
+	src: url('Aller_Rg.eot');
+	src: local('Aller Regular'), local('Aller'), url('Aller_Rg.ttf') format('truetype');
 }
 
 @font-face {
 	font-family: 'AllerDisplayRegular';
 	src: url('AllerDisplay.eot');
-	src: local('Aller Display Regular'), local('AllerDisplay'), url('AllerDisplay.woff') format('woff'), url('AllerDisplay.ttf') format('truetype'), url('AllerDisplay.svg#AllerDisplay') format('svg');
+	src: local('Aller Display Regular'), local('AllerDisplay'), url('AllerDisplay.ttf') format('truetype');
 }
 

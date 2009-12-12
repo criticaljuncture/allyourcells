@@ -60,9 +60,11 @@ body {
   font-size: 36px;
   line-height:normal;
   text-decoration: none;
+  text-shadow: 1px 1px 1px #707070;    
 }
 #nav ul li a:hover {
   color: #f38630;
+  text-shadow: 1px 1px 1px #da7424;  
 }
 #main {
   background: url(/images/content_bg.png) repeat-y left top;
@@ -80,11 +82,40 @@ body {
 }
 #main .content {
   margin: 0 auto;
-  width: 870px;
-  
+  min-height: 700px;
+  padding: 0 30px;
+  width: 810px;
 }
-
-
+#main .content h1 {
+  color: #554641;
+  font-family: 'AllerDisplayRegular', sans-serif;  
+  font-size: 33px;
+  line-height:normal;  
+}
+#main .content h1.topinfo {
+  background: url(/images/hr.png) no-repeat left bottom;
+  padding-bottom: 30px;
+  text-indent: 7px;
+}
+#main .content h1.topinfo span.cellsite { color: #ad9d8e; }
+#main .content h1.topinfo span.photo { color: #85705e; }
+#main .content h1.topinfo span.email { color: #85705e; }
+#main .content h2 {
+  color: #554641;
+  font-family: 'AllerLightRegular', sans-serif;  
+  font-size: 26px;
+  line-height:normal;
+}
+#main .content p {
+  color: #3a3331;
+  font-family: 'AllerRegular', sans-serif;  
+  font-size: 15px;
+  line-height:normal;
+}
 #footer {
   background: url(/images/mask.png) repeat-x left bottom; 
+  margin-top: -373px;
+  padding-top: 373px;
+  width: 100%;
+  position: absolute;
 }  
