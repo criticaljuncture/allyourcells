@@ -28,6 +28,8 @@ body {
   
 #header h1.logo a{
   background: url(/images/logo.png) no-repeat left top;
+  _background-image: none;
+  _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/logo.png', sizingMethod='image');  
   display: block;
   height: 100px;
   left: 10px;
@@ -39,6 +41,8 @@ body {
 
 #nav {
   background: url(/images/navbar.png) no-repeat;
+  _background-image: none;
+  _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/navbar.png', sizingMethod='image');
   display: block;
   height: 64px;
   margin: 0 auto 0 auto;
@@ -49,10 +53,10 @@ body {
 }
 #nav ul li {
   float: left;
-  margin-right: 175px;
+  margin-left: 167px;
 }
-#nav ul li:last-child {
-  margin-right: 0;
+#nav ul :first-child {
+  margin-left: 0;
 }
 #nav ul li a {
   color: #4c4c4c;
@@ -68,6 +72,8 @@ body {
 }
 #main {
   background: url(/images/content_bg.png) repeat-y left top;
+  _background-image: none;
+  _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/content_bg.png', sizingMethod='image');  
   margin: 0 auto;
   padding: 0 0 0 0;
   position: relative;  
@@ -75,6 +81,8 @@ body {
 }
 .top {
   background: url(/images/content_top.png) no-repeat left top;
+  _background-image: none;
+  _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/content_top.png', sizingMethod='image');  
   display: block;
   height: 27px;
   margin: 0 auto;
@@ -83,7 +91,7 @@ body {
 #main .content {
   margin: 0 auto;
   min-height: 700px;
-  padding: 0 30px;
+  padding: 10px 30px;
   width: 810px;
 }
 #main .content h1 {
@@ -94,6 +102,8 @@ body {
 }
 #main .content h1.topinfo {
   background: url(/images/hr.png) no-repeat left bottom;
+  _background-image: none;
+  _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/hr.png', sizingMethod='image');  
   padding-bottom: 30px;
   text-indent: 7px;
 }
@@ -114,6 +124,8 @@ body {
 }
 #footer {
   background: url(/images/mask.png) repeat-x left bottom; 
+  _background-image: none;
+  _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/mask.png', sizingMethod='scale');  
   margin-top: -373px;
   padding-top: 373px;
   width: 100%;
