@@ -41,7 +41,7 @@ body {
 
 #login {
   background: #e1e2db;
-  color: #cccdc3;  
+  color: #847c72;  
   border: 1px solid #bebead;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -58,7 +58,7 @@ body {
   top: -10px;
 }
 #login:hover {
-  color: #9a9b91;
+  
 }
 #login:hover span {
   background-position: right -30px;
@@ -141,7 +141,7 @@ body {
 }
 #main .content h1.topinfo span.cellsite { color: #ad9d8e; }
 #main .content h1.topinfo span.photo { color: #85705e; }
-#main .content h1.topinfo span.email { color: #85705e; }
+#main .content h1.topinfo span.email { color: #3a3331; }
 #main .content h2 {
   color: #554641;
   font-family: 'AllerLightRegular', sans-serif;  
