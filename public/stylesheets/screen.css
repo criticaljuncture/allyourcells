@@ -45,6 +45,24 @@ body {
 }
 #nav ul {
   list-style: none inside;
+  padding: 0 100px;
+}
+#nav ul li {
+  float: left;
+  margin-right: 175px;
+}
+#nav ul li:last-child {
+  margin-right: 0;
+}
+#nav ul li a {
+  color: #4c4c4c;
+  font-family: 'AllerDisplayRegular', sans-serif;  
+  font-size: 36px;
+  line-height:normal;
+  text-decoration: none;
+}
+#nav ul li a:hover {
+  color: #f38630;
 }
 #main {
   background: url(/images/content_bg.png) repeat-y left top;
