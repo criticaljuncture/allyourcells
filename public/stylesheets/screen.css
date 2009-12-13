@@ -163,3 +163,32 @@ body {
   width: 100%;
   position: absolute;
 }  
+
+.large_map {
+  width: 800px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.large_map div.wml-text-background {
+  opacity: 1;
+}
+.large_map div.wml-text-background div.wml-copyright-text{
+  width: 800px;
+}
+.medium_map {
+  width: 350px;
+  height: 320px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+.medium_map div.wml-info-window-content ul {
+  margin: 0;
+}
+
+.medium_map div.wml-info-window-content ul li{
+  margin-left: 10px;
+}
