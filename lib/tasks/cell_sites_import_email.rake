@@ -7,11 +7,11 @@ namespace :cell_sites do
       EmailSubmission.all.each do |email_submission| 
         if email_submission.save
           puts "#{email_submission.message_id} SAVED"
-          # if email_submission.creator.email_confirmed?
-          #   # send response email
-          # else
-          #   # send email with token to validate email
-          # end
+          if email_submission.cell_site.creator.active?
+            puts "thank you active user!"
+          else
+            puts "inactive user!"
+          end
         else
           puts "#{email_submission.message_id} INVALID: #{email_submission.errors}"
           # send error email
