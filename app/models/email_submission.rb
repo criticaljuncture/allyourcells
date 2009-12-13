@@ -28,6 +28,8 @@ class EmailSubmission < EmailMessage
   end
   
   def save
+    move_to('processed')
+    
     if valid?
       cell_site = CellSite.new(
         :photo_content => jpeg_image_content,
@@ -35,7 +37,7 @@ class EmailSubmission < EmailMessage
         :lng => longitude,
         :email_uid => uid
       )
-    
+      
       if cell_site.save
         return true
       else

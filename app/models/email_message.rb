@@ -44,6 +44,10 @@ class EmailMessage
     raw_messages.map{ |raw_msg| new(raw_msg) }
   end
   
+  def self.expunge
+    connection.expunge
+  end
+  
   def initialize(message_id)
     @message_id = message_id
   end
@@ -67,6 +71,11 @@ class EmailMessage
   
   def sender
      message.attr["ENVELOPE"].from.first
+  end
+  
+  def move_to(folder)
+    EmailMessage.connection.copy(message_id, folder)
+    EmailMessage.connection.store(message_id, "+FLAGS", [:Deleted])
   end
   
   private
