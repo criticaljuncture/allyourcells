@@ -26,8 +26,8 @@ class EmailMessage
   def self.connect(options)
     options.symbolize_keys!
     
-    @connection = Net::IMAP.new(options[:server])
-    @connection.login(options[:user], options[:password]) 
+    @connection = Net::IMAP.new(options[:address])
+    @connection.login(options[:user_name], options[:password]) 
     @connection.select('Inbox')
   end
   
