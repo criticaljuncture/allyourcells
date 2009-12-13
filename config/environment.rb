@@ -45,3 +45,5 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+
+ActionMailer::Base.smtp_settings = YAML::load(File.open("#{RAILS_ROOT}/config/mail.yml"))["smtp"].symbolize_keys!
