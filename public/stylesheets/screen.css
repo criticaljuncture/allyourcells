@@ -15,7 +15,7 @@ html {
 body {
   background: url(/images/header.png) repeat-x left -35px;
 }
-#wrapper {  
+#wrapper {
   margin: 0 auto;
   position: relative;  
   width: 980px;
@@ -64,7 +64,7 @@ body {
   background-position: right -30px;
 }
 #login span {
-  background: url(/images/login_arrow.gif) no-repeat right top;
+  background: url(/images/login_arrow.gif) no-repeat right 1px;
   padding-right: 15px;
 }
 /* need to fix IE6 */
