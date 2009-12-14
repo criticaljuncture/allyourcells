@@ -80,7 +80,7 @@ module Cloudkicker
         $.ajax({
           type:"GET",
           url:"/cell_sites.js",
-          data:"bounds={sw_point:["+sw_point+"],ne_point:["+ne_point+"]}",
+          data:"bounds[sw_point][]=" + sw_point[0] + "&bounds[sw_point][]=" + sw_point[1] + "&bounds[ne_point][]=" + ne_point[0] + "&bounds[ne_point][]=" + ne_point[1],
           dataType:'json',
           success: add_markers
         });
