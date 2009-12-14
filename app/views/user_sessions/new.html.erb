@@ -2,6 +2,9 @@
  
 <% semantic_form_for @user_session, :url => user_session_path do |f| %>
   <%= f.error_messages %>
-  <%= render :partial => "users/form", :locals  => {:f => f} %>
+  <% f.inputs do %>
+    <%= f.input :email %>
+    <%= f.input :password, :as => :password %>
+  <% end %>
   <%= f.submit "Sign In" %>
 <% end %>
