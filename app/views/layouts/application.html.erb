@@ -47,13 +47,13 @@
       
       <% unless flash[:notice].blank? %>
         <div class="alert">
-          <div class="confirm"><span>AHOY!</span> <%= flash[:notice] %></div>
+          <div class="confirm"><span><%= alert_exclamation %>!</span> <%= flash[:notice] %></div>
         </div>
       <% end %>
 
       <% unless flash[:error].blank? %>
         <div class="alert">
-          <div class="error"><span>GADZOOKS!</span><%= flash[:error] %></div>
+          <div class="error"><span><%= error_exclamation %>!</span><%= flash[:error] %></div>
         </div>
       <% end %>
 

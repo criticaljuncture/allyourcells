@@ -266,7 +266,7 @@ body {
   font-size: 32px;
   line-height:normal;
   text-decoration: none;
-  text-shadow: 1px 1px 1px #707070;    
+  text-shadow: 1px 1px 1px #aaa;   /* 707070*/
 }
 #nav ul li a:hover {
   color: #f38630;

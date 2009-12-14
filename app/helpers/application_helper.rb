@@ -8,4 +8,12 @@ module ApplicationHelper
       content_for :precolumn, content_tag(:h1, text, :class => 'topinfo')
     end
   end
+  def alert_exclamation
+    choices = ["AHOY", "AHEM", "WELL DONE", "TALLY HO"]
+    choices[rand(choices.length)] 
+  end  
+  def error_exclamation
+    choices = ["SCHNIKES", "JINKIES", "EGAD", "OH DEAR", "GOOD GRIEF", "ZOINKS"]
+    choices[rand(choices.length)] 
+  end
 end
