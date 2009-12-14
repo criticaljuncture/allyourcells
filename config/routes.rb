@@ -17,4 +17,5 @@ ActionController::Routing::Routes.draw do |map|
   # SPECIAL PAGES
   map.root :controller => 'special', :action => 'home'
   map.about 'about', :controller => 'special', :action => 'about'
+  map.instructions 'instructions', :controller => 'special', :action => 'instructions'  
 end

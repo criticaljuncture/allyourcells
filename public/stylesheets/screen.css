@@ -45,7 +45,18 @@ body {
   text-indent: -9999px;  
   top: 25px;
   width: 442px; 
-  }  
+  }
+#utility {
+  position: absolute;
+  right: -50px;
+  top: 15px;  
+}
+#utility p {
+  color: #847c72;
+  float: left;
+  font-weight: bold;
+  margin-right: 10px;
+}    
 .utility_button {
   background: #e1e2db;
   color: #9a9b91;  
@@ -62,14 +73,11 @@ body {
   text-transform: uppercase;
   text-decoration: none;       
 }
-#signin {
-  position: absolute;
-  right: -50px;
-  top: 5px;
-  z-index: 2;
+.utility_button:hover {
+  color: #847c72;  
 }
-#signin:hover {
-  color: #847c72;
+#signin {
+  z-index: 2;
 }
 #signin:hover span {
   background-position: right -29px;
@@ -311,6 +319,8 @@ body {
   margin-bottom: 15px;
   padding-bottom: 30px;
   text-align: center;
+  
+  text-transform: uppercase;
 }
 #main .content h1.topinfo span.cellsite { color: #ad9d8e; }
 #main .content h1.topinfo span.photo { color: #85705e; }
