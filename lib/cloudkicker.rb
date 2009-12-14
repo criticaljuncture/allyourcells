@@ -25,6 +25,7 @@ module Cloudkicker
       # TODO: disable mouse zoom should be an option in an map options class
       js << "   map.disableScrollWheelZoom();"
       js << "   var added_markers = [];"
+      js << "   $('.loader').show();"
       
       #add load event
       js << "   CM.Event.addListener(map, 'load', function() {"
@@ -32,6 +33,7 @@ module Cloudkicker
       js << "   });"
       
       js << "   CM.Event.addListener(map, 'dragend', function() {"
+      js << "     $('.loader').show();"
       js << "     getMapPoints(map.getBounds());"
       js << "   });"
       
@@ -57,14 +59,19 @@ module Cloudkicker
             icon: icon
           });
           
+          CM.Event.addListener(myMarker, 'click', function(latlng){
+            map.openInfoWindow(myMarkerLatLng, parseTemplate($("#cell_site_template").html(), marker), {maxWidth: 400, pixelOffset: new CM.Size(-8,-50)});
+          });
+          
+          
           added_markers.push(myMarker);
           map.addOverlay(myMarker);
         });
-
+        
+        $('.loader').hide();
       }
 
       function getMapPoints(CMBounds) {
-        console.log('BAR');
         var sw_CMLatLng = CMBounds.getSouthWest();
         var sw_point    = [sw_CMLatLng.lat(), sw_CMLatLng.lng()]
         var ne_CMLatLng = CMBounds.getNorthEast();
