@@ -1,6 +1,6 @@
 class EmailSubmission < EmailMessage
   include GeoUtils
-  attr_accessor :errors
+  attr_accessor :errors, :cell_site
   
   def initialize(message_id )
     super
@@ -14,7 +14,6 @@ class EmailSubmission < EmailMessage
   
   def validate
     attachment_includes_gps_coordinates if has_one_jpeg_attachment
-    is_from_known_user
   end
   
   def latitude
@@ -28,19 +27,25 @@ class EmailSubmission < EmailMessage
   end
   
   def save
+    move_to('processed')
+    
     if valid?
-      cell_site = CellSite.new(
+      creator = User.find_or_create_by_email!("#{sender.mailbox}@#{sender.host}")
+      
+      @cell_site = CellSite.new(
         :photo_content => jpeg_image_content,
         :lat => latitude,
         :lng => longitude,
-        :email_uid => uid
+        :email_uid => uid,
+        :creator_id => creator.id,
+        :updater_id => creator.id
       )
-    
-      if cell_site.save
+      
+      if @cell_site.save
         return true
       else
-        @errors << cell_site.errors.full_messages
-        cell_site.save
+        @errors << @cell_site.errors.full_messages
+        @cell_site.save
         return false
       end
     else
@@ -70,14 +75,6 @@ class EmailSubmission < EmailMessage
         @errors << 'Your image did not include GPS coodinates.'
       end
     end
-  end
-  
-  def is_from_known_user
-    email = "#{sender.mailbox}@#{sender.host}"
-    
-    # unless User.find_by_email(email)
-    #   @errors << 'You are not a known user.'
-    # end
   end
   
   def jpeg_attachments

@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   end
   
   attr_accessor :has_account
+  attr_accessor :auto_generated
   
   has_many :user_lists, :dependent => :destroy
   
@@ -40,15 +41,35 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :login, :allow_nil => true 
   validates_uniqueness_of :email
   
-  validates_length_of :password, :minimum => 6
+  validates_presence_of :password, :unless => Proc.new {|u| u.auto_generated }
+  validates_length_of :password, :minimum => 6, :allow_nil => true
+  
+  attr_protected :active, :auto_generated
+  
+  def email=(email_address)
+    email_address = email_address.downcase if email_address
+    write_attribute('email', email_address)
+  end
   
   def deliver_password_reset_instructions!  
-    reset_perishable_token!  
-    PasswordResetNotifier.deliver_password_reset_instructions(self)
+    reset_perishable_token!
+    UserMailer.deliver_password_reset_instructions!(self)
   end
 
   def sign_in_type
     'register'
+  end
+  
+  def self.find_or_create_by_email!(email)
+    user = find_by_email(email)
+    
+    if ! user
+      user = User.new(:email => email)
+      user.auto_generated = true
+      user.save!
+    end
+    
+    user
   end
   
 end
