@@ -30,7 +30,7 @@ class EmailSubmission < EmailMessage
     move_to('processed')
     
     if valid?
-      creator = User.find_or_create_by_email!("#{sender.mailbox}@#{sender.host}")
+      creator = User.find_or_create_by_email!(sender_email)
       
       @cell_site = CellSite.new(
         :photo_content => jpeg_image_content,
