@@ -337,7 +337,9 @@ body {
   font-size: 15px;
   line-height:normal;
 }
-
+#main .content ul {
+  margin-bottom: 30px;
+}
 ul.entries {
   border-top: 1px solid #ccc;  
   list-style-type: none;

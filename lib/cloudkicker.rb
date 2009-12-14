@@ -33,7 +33,7 @@ module Cloudkicker
       js << "   });"
       
       js << "   CM.Event.addListener(map, 'dragend', function() {"
-      js << "     $('.loader').show();"
+      js << "     $('.loader img').show();"
       js << "     getMapPoints(map.getBounds());"
       js << "   });"
       
@@ -68,7 +68,7 @@ module Cloudkicker
           map.addOverlay(myMarker);
         });
         
-        $('.loader').hide();
+        $('.loader img').hide();
       }
 
       function getMapPoints(CMBounds) {
