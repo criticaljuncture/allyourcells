@@ -28,7 +28,8 @@
       <% if current_user %>
       <%= current_user.email %> | <%= link_to 'Sign Out', logout_path %>
       <% else %>
-      <a href="#" id="login"><span>Log in / Signup</span></a>
+      <a href="#" id="signin"><span>Sign in / Sign up</span></a>
+      <div class="signin_form"<%= render :partial => 'users/login_register_form', :locals => { :user => UserSession.new } %></div>          
       <% end %>
       <%= render :partial => 'layouts/navigation' %>      
     </div>     <!-- HEADER end -->   
@@ -37,28 +38,28 @@
   <!-- WRAPPER -->
   <div id="wrapper" class="group">
 
-    <div class="top"></div>
-      
-    <!-- MAIN -->
-    <div id="main" class="group<%= ' cols' if yield :sidebar %>">
       
       <% unless flash[:notice].blank? %>
-        <div class="alert">
-          <div class="confirm"><%= flash[:notice] %></div>
+      <div class="alert">
+          <div class="confirm"><span>ALERT!</span> <%= flash[:notice] %></div>
         </div>
       <% end %>
 
       <% unless flash[:error].blank? %>
       <div class="alert">
-        <div class="error"><%= flash[:error] %></div>
+        <div class="error"><span>ERROR!</span> <%= flash[:error] %></div>
       </div>
       <% end %>
+
+    <div class="top"></div>
+      
+    <!-- MAIN -->
+    <div id="main" class="group<%= ' cols' if yield :sidebar %>">
     
       <!-- content -->
-      <div class="content">
+      <div class="content">     
           <% if yield :precolumn %>
             <div class="precolumn">
-              <h1 class="topinfo"><span class="cellsite">SEE A CELL SITE?</span> <span class="photo">TAKE A PHOTO.</span><span class="email"> E-MAIL IT TO US.</span></h1>
               <%= yield :precolumn %>
             </div>
           <% end %>
@@ -89,7 +90,6 @@
     <%= render :partial => 'layouts/footer' %>
   </div>
   <!-- FOOTER end -->
-    
   <%= render :partial => 'layouts/google_analytics' %>  
 </body>
 </html>

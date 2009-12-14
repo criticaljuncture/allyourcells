@@ -1,8 +1,16 @@
-<h3>Login</h3>
+<!-- <h3>Sign In</h3> -->
 <% semantic_form_for :user, user, :url => user_session_path(), :html => {:id => 'login_register_modal'} do |f| %>
   <%= f.error_messages %>
-  <%= f.input :sign_in_type, :collection => sign_in_type, :as => :radio, :label => 'Do you have a govpulse.us password?' %>
+  <ol>
+    <%= f.input :sign_in_type, :collection => sign_in_type, :as => :radio, :label => 'Do you have an All Your Cells password?' %>
+  </ol>
+ 
   <%= render :partial => "users/form", :locals  => {:f => f} %>
-  <%= button_to "Login" %>
-  <%= link_to 'cancel', '', :class => 'cancel' %>
+ 
+  <% f.buttons do %>
+    <%= f.commit_button "Sign In &raquo;",  :button_html => { :class => 'awesome orange' } %>
+  <% end %>
+  
 <% end %>
+
+<%= link_to 'Forgot your password?', '#' , :class => 'forgot' %>
