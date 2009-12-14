@@ -80,7 +80,7 @@ module Cloudkicker
         $.ajax({
           type:"GET",
           url:"/cell_sites.js",
-          data:"search[conditions][within_bounds][sw_point][]=" + sw_point[0] + "&search[conditions][within_bounds][sw_point][]=" + sw_point[1] + "&search[conditions][within_bounds][ne_point][]=" + ne_point[0] + "&search[conditions][within_bounds][ne_point][]=" + ne_point[1],
+          data:"search[conditions][descend_by_created_at]=1&search[conditions][within_bounds][sw_point][]=" + sw_point[0] + "&search[conditions][within_bounds][sw_point][]=" + sw_point[1] + "&search[conditions][within_bounds][ne_point][]=" + ne_point[0] + "&search[conditions][within_bounds][ne_point][]=" + ne_point[1],
           dataType:'json',
           success: add_markers
         });
