@@ -60,7 +60,7 @@ module Cloudkicker
           });
           
           CM.Event.addListener(myMarker, 'click', function(latlng){
-            map.openInfoWindow(myMarkerLatLng, parseTemplate($("#cell_site_template").html(), marker), {maxWidth: 400, pixelOffset: new CM.Size(-8,-50)});
+            map.openInfoWindow(myMarkerLatLng, parseTemplate($("#cell_site_template").html(), marker), {maxWidth: 400, pixelOffset: new CM.Size(0,-10)});
           });
           
           
