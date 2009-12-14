@@ -16,9 +16,9 @@ class CellSite < ActiveRecord::Base
     self.photo = temp_file
   end
   
-  named_scope :within_bounds, Proc.new {|bounds|
+  named_scope :within_bounds,  Proc.new {|bounds|
     options = {}
-    apply_bounds_conditions(options, Geokit::Bounds.normalize(bounds))
+    apply_bounds_conditions(options, Geokit::Bounds.normalize(bounds["sw_point"], bounds["ne_point"]))
     options
   }
   
