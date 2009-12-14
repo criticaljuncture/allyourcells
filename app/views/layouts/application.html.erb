@@ -43,15 +43,15 @@
 
       
       <% unless flash[:notice].blank? %>
-      <div class="alert">
+        <div class="alert">
           <div class="confirm"><span>AHOY!</span> <%= flash[:notice] %></div>
         </div>
       <% end %>
 
       <% unless flash[:error].blank? %>
-      <div class="alert">
-        <div class="error"><span>GADZOOKS!</span> <%= flash[:error] %></div>
-      </div>
+        <div class="alert">
+          <div class="error"><span>GADZOOKS!</span> <%= flash[:error] %></div>
+        </div>
       <% end %>
 
     <div class="top"></div>

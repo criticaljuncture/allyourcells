@@ -18,4 +18,5 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'special', :action => 'home'
   map.about 'about', :controller => 'special', :action => 'about'
   map.instructions 'instructions', :controller => 'special', :action => 'instructions'  
+  map.mobile 'mobile', :controller => 'special', :action => 'mobile'  
 end

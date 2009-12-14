@@ -1,8 +1,9 @@
 <% title 'Sign In' %>
  
 <% semantic_form_for @user_session, :url => user_session_path do |f| %>
-  <%# TODO HELP-RUBY can this go in the flash messages? %>
-  <%= f.error_messages %>
+    
+  <% flash[:error] = f.error_messages %>
+  
   <% f.inputs do %>
     <%= f.input :email %>
     <%= f.input :password, :as => :password %>

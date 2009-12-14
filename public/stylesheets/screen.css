@@ -253,7 +253,7 @@ body {
 }
 #nav ul li {
   float: left;
-  margin-left: 167px;
+  margin-left: 80px;
 }
 #nav ul :first-child {
   margin-left: 0;
@@ -398,6 +398,15 @@ ul.entries li {
   line-height:normal;
   text-decoration: none;
   text-shadow: 1px 1px 1px #707070;  
+}
+.alert .error .errorExplanation p {
+  font-style: italic;
+}
+.alert .error .errorExplanation ul {
+  margin-top: 10px;
+}
+.alert .error .errorExplanation ul li {
+  list-style-position: inside;
 }
 /* MAP */
 .loader {
