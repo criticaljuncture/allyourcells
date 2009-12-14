@@ -93,7 +93,7 @@ body {
 .formtastic {
   font-family: Helvetica, Arial, Sans-Serif;
   font-size: 12px;
-  width: 350px;  
+ 
 }
 .formtastic label {
   color: #524c46;  
@@ -118,7 +118,7 @@ body {
   display: block;  
   height: 18px;
   margin-bottom: 5px;
-  width: 100%;  
+  width: 350px  
 }
 
 .formtastic .label {
@@ -126,6 +126,7 @@ body {
   padding-bottom: 8px;
 }
 .formtastic .inputs label {
+  font-size: 14px;
   font-weight: bold;
 }
 .buttons {
@@ -197,6 +198,13 @@ body {
 }
 .signin_form .formtastic label {
   color: #847C72;
+  font-weight: normal;
+}
+.signin_form .formtastic .inputs label {
+  font-weight: bold;  
+}
+.signin_form .formtastic .inputs input {
+  width: 100%;
 }
 .forgot {
   color: #847c72;
@@ -208,6 +216,17 @@ body {
 .forgot:hover {
   text-decoration: underline;
 }
+.formtastic .inputs li.error {
+  position: relative;
+}
+.formtastic .inputs li.error p.inline-errors {
+  background: url(/images/error.gif) no-repeat left 2px;
+  padding-left: 20px;
+  position: absolute;
+  left: 360px;
+  top: 16px;
+}
+
 /* need to fix IE6 */
 #nav {
   background: url(/images/navbar.png) no-repeat;
@@ -217,7 +236,7 @@ body {
   height: 64px;
   margin: 0 auto;
   position: absolute;
-  top: 155px;
+  top: 157px;
   width: 980px;  
 }
 #nav ul {

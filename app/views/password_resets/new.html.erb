@@ -4,7 +4,7 @@
 
 <% semantic_form_for :user, :url => password_resets_path do |f| %>
   <% f.inputs do %>
-    <%= f.input :email %>
+    <%= f.input :email, :label => 'E-Mail' %>
   <% end %>
   <% f.buttons do %>
     <%= f.commit_button "Send me a link to reset my password", :button_html => { :class => 'awesome orange' } %>
