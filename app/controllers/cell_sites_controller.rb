@@ -1,8 +1,6 @@
 class CellSitesController < ApplicationController
   include Geokit
   def index
-    @cell_sites = CellSite.all
-    
     respond_to do |wants|
       wants.js { 
         bounds = ActiveSupport::JSON.decode(params[:bounds])
