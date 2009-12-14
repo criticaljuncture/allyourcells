@@ -5,7 +5,7 @@ module ApplicationHelper
     
     content_for :title, text
     unless options[:body] == false
-      content_for :precolumn, content_tag(:h1, text)
+      content_for :precolumn, content_tag(:h1, text, :class => 'topinfo')
     end
   end
 end

@@ -46,8 +46,7 @@ body {
   top: 25px;
   width: 442px; 
   }  
-
-#signin {
+.utility_button {
   background: #e1e2db;
   color: #9a9b91;  
   border: 1px solid #e1e2db;
@@ -59,11 +58,13 @@ body {
   font-size: 12px;
   font-weight: bold; 
   outline: none;
-  padding: 8px 10px 5px 10px;
+  padding: 8px 10px 5px 10px; 
+  text-transform: uppercase;
+  text-decoration: none;       
+}
+#signin {
   position: absolute;
   right: -50px;
-  text-transform: uppercase;
-  text-decoration: none;    
   top: 5px;
   z-index: 2;
 }
@@ -89,44 +90,25 @@ body {
   background-position: right -59px;    
 }
 /* LOGIN */
-.signin_form {
-  background: #e1e2db;
-  border: 1px solid #e1e2db;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px; /* future proofing */
-  -khtml-border-radius: 10px; /* for old Konqueror browsers */  
-  -moz-border-radius-topright: 0;
-  -webkit-border-top-right-radius: 0;  
-  color: #554641;
-  display: none;
-  padding: 15px 15px 15px 15px;
-  position: absolute;
-  right: -50px;
-  top: 27px;
-  width: 240px;
-  z-index: 2;  
-}
-.signin_form label {
-  color: #847c72
-}
-#login_register_modal {
+.formtastic {
   font-family: Helvetica, Arial, Sans-Serif;
   font-size: 12px;
+  width: 350px;  
 }
-#login_register_modal ol {
+.formtastic label {
+  color: #524c46;  
+  font-weight: bold;
+}
+.formtastic ol {
   list-style: none;
-  margin-bottom: 5px;
+  margin-bottom: 5px;  
 }
-#user_sign_in_type_input .label {
-  display: block;
-  padding-bottom: 8px;
-}
-#login_register_modal .inputs {
+.formtastic .inputs {
   margin-top: 10px;
-  margin-bottom: 10px;  
+  margin-bottom: 10px;   
 }
-#login_register_modal .inputs input {
+
+.formtastic .inputs input {
   border: 1px solid #EAEAEA;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -136,9 +118,14 @@ body {
   display: block;  
   height: 18px;
   margin-bottom: 5px;
-  width: 100%;
+  width: 100%;  
 }
-#login_register_modal .inputs label {
+
+.formtastic .label {
+  display: block;
+  padding-bottom: 8px;
+}
+.formtastic .inputs label {
   font-weight: bold;
 }
 .buttons {
@@ -186,6 +173,30 @@ body {
 }
 .buttons .cancel {
   float: right;
+}
+.signin_form {
+  background: #e1e2db;
+  border: 1px solid #e1e2db;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */  
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;  
+  color: #554641;
+  display: none;
+  padding: 15px 15px 15px 15px;
+  position: absolute;
+  right: -50px;
+  top: 27px;
+  width: 240px;
+  z-index: 2;  
+}
+.signin_form .formtastic {
+  width: 240px;
+}
+.signin_form .formtastic label {
+  color: #847C72;
 }
 .forgot {
   color: #847c72;
@@ -299,15 +310,15 @@ body {
 }
 
 ul.entries {
-  border-top: 1px solid #b1a073;  
+  border-top: 1px solid #ccc;  
   list-style-type: none;
 }
 ul.entries li {
-  border-bottom: 1px solid #b1a073;
+  border-bottom: 1px solid #ccc;
   padding: 10px 0;
 }
 .count {
-  padding: 3px 7px;
+  padding: 3px 6px 2px 7px;
   background: #cee9e5;
   color: #7f8f8c;
   border: 1px solid #cee9e5;
@@ -349,10 +360,12 @@ ul.entries li {
   text-align: center;
   width: 870px;
 }
-.alert .confirm span {
-    color: #4c4c4c;
-  font-family: 'Helvetica', sans-serif;  
-  font-size: 16px;
+.alert .confirm span,
+.alert .error span {
+  color: #f38630;
+  display: block;
+  font-family: 'nevis', sans-serif;  
+  font-size: 24px;
   line-height:normal;
   text-decoration: none;
   text-shadow: 1px 1px 1px #707070;  

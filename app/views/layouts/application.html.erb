@@ -27,10 +27,10 @@
     <div id="header">  <!-- HEADER -->
       <h1 class="logo"><a href="/" title="All Your Cells - Home">All Your Cells</a></h1>
       <% if current_user %>
-      <%= current_user.email %> | <%= link_to 'Sign Out', logout_path %>
+        <%= current_user.email %> | <%= link_to 'Sign Out', logout_path %>
       <% else %>
-      <a href="#" id="signin"><span>Sign in / Sign up</span></a>
-      <div class="signin_form"<%= render :partial => 'users/login_register_form', :locals => { :user => UserSession.new } %></div>          
+        <a href="/users/new" id="signin" class="utility_button"><span>Sign in / Sign up</span></a>
+        <div class="signin_form"<%= render :partial => 'users/login_register_form', :locals => { :user => UserSession.new } %></div>          
       <% end %>
       <%= render :partial => 'layouts/navigation' %>      
     </div>     <!-- HEADER end -->   
@@ -42,13 +42,13 @@
       
       <% unless flash[:notice].blank? %>
       <div class="alert">
-          <div class="confirm"><span>ALERT!</span> <%= flash[:notice] %></div>
+          <div class="confirm"><span>AHOY!</span> <%= flash[:notice] %></div>
         </div>
       <% end %>
 
       <% unless flash[:error].blank? %>
       <div class="alert">
-        <div class="error"><span>ERROR!</span> <%= flash[:error] %></div>
+        <div class="error"><span>GADZOOKS!</span> <%= flash[:error] %></div>
       </div>
       <% end %>
 
