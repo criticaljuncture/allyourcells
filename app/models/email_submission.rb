@@ -23,7 +23,7 @@ class EmailSubmission < EmailMessage
   
   def longitude
     degrees_minutes_seconds = exif_data.gps_longitude
-    sexagesimal_to_decimal_degrees(*degrees_minutes_seconds) unless degrees_minutes_seconds.blank?
+    sexagesimal_to_decimal_degrees(*degrees_minutes_seconds) * -1 unless degrees_minutes_seconds.blank?
   end
   
   def save
