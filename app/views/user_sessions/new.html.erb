@@ -1,8 +1,7 @@
-<h1>Login</h1>
+<h1>Sign In</h1>
  
 <% semantic_form_for @user_session, :url => user_session_path do |f| %>
   <%= f.error_messages %>
   <%= render :partial => "users/form", :locals  => {:f => f} %>
-
-  <%= f.submit "Login" %>
+  <%= f.submit "Sign In" %>
 <% end %>

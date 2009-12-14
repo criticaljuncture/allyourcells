@@ -45,33 +45,155 @@ body {
   width: 442px; 
   }  
 
-#login {
+#signin {
   background: #e1e2db;
-  color: #847c72;  
-  border: 1px solid #bebead;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px; /* future proofing */
-  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+  color: #9a9b91;  
+  border: 1px solid #e1e2db;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; /* future proofing */
+  -khtml-border-radius: 5px; /* for old Konqueror browsers */
   font-family: Helvetica, Arial, sans-serif;
   font-size: 12px;
-  font-weight: bold;  
-  padding: 15px 10px 5px 10px;
+  font-weight: bold; 
+  outline: none;
+  padding: 8px 10px 5px 10px;
   position: absolute;
   right: -50px;
   text-transform: uppercase;
   text-decoration: none;    
-  top: -10px;
+  top: 5px;
+  z-index: 2;
 }
-#login:hover {
-  
+#signin:hover {
+  color: #847c72;
 }
-#login:hover span {
-  background-position: right -30px;
+#signin:hover span {
+  background-position: right -29px;
 }
-#login span {
+#signin span {
   background: url(/images/login_arrow.gif) no-repeat right 1px;
   padding-right: 15px;
+}
+#signin.open {
+  color: #847c72;  
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-bottom-right-radius: 0;   
+}
+#signin.open span {
+  background-position: right -89px;    
+}
+#signin.open:hover span {
+  background-position: right -59px;    
+}
+/* LOGIN */
+.signin_form {
+  background: #e1e2db;
+  border: 1px solid #e1e2db;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */  
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;  
+  color: #554641;
+  display: none;
+  padding: 15px 15px 15px 15px;
+  position: absolute;
+  right: -50px;
+  top: 27px;
+  width: 240px;
+  z-index: 2;  
+}
+.signin_form label {
+  color: #847c72
+}
+#login_register_modal {
+  font-family: Helvetica, Arial, Sans-Serif;
+  font-size: 12px;
+}
+#login_register_modal ol {
+  list-style: none;
+  margin-bottom: 5px;
+}
+#user_sign_in_type_input .label {
+  display: block;
+  padding-bottom: 8px;
+}
+#login_register_modal .inputs {
+  margin-top: 10px;
+  margin-bottom: 10px;  
+}
+#login_register_modal .inputs input {
+  border: 1px solid #EAEAEA;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px; /* future proofing */ 
+  -khtml-border-radius: 4px; /* for old Konqueror browsers */ 
+  border-top-color: #B1B1B1;
+  display: block;  
+  height: 18px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+#login_register_modal .inputs label {
+  font-weight: bold;
+}
+.buttons {
+  margin: 10px 0 15px 0;
+}
+.buttons input {
+  float: left;
+  border: none;
+  background: none;
+}
+.awesome {
+  background: #f38630 url(/images/overlay.png) repeat-x;
+	border-bottom: 1px solid rgba(0,0,0,0.25);  
+  color:#FFFFFF;
+	cursor: pointer;
+  font-size:11px;
+  font-weight:bold;
+  margin:0 5px 0 0;
+  padding:4px 10px 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+}
+.orange.awesome {
+	background-color: #f38630;
+}
+.orange.awesome:hover {
+	background-color: #fc8a32;
+}
+.orange.awesome:active {
+	background-color: #fe8020;
+}
+.grey.cancel {
+  background-color: #7c7875;
+  border-color: #a5a29f;
+  text-decoration: none;
+}
+.grey.cancel:hover {
+  background-color: #4d4a48;
+}
+.grey.cancel:active {
+  background-color: #403e3c;  
+}
+.buttons .cancel {
+  float: right;
+}
+.forgot {
+  color: #847c72;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold; 
+  text-decoration: none;
+}
+.forgot:hover {
+  text-decoration: underline;
 }
 /* need to fix IE6 */
 #nav {
@@ -169,10 +291,9 @@ body {
 }  
 
 /* MAP */
-
 .loader {
   background: url(/images/loading_bg.png) no-repeat left top;
-  display: block;
+  display: none;
   bottom: 0;
   height: 111px;
   opacity: .75;  
