@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091213224300) do
+ActiveRecord::Schema.define(:version => 20091214015129) do
 
   create_table "cell_sites", :force => true do |t|
     t.float    "lat"
@@ -39,6 +39,10 @@ ActiveRecord::Schema.define(:version => 20091213224300) do
     t.string   "structure_type"
     t.string   "license_id"
   end
+
+  add_index "cell_sites", ["lat"], :name => "index_cell_sites_on_lat"
+  add_index "cell_sites", ["license_id"], :name => "index_cell_sites_on_license_id"
+  add_index "cell_sites", ["lng"], :name => "index_cell_sites_on_lng"
 
   create_table "users", :force => true do |t|
     t.string   "login"

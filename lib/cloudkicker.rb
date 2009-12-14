@@ -24,6 +24,62 @@ module Cloudkicker
       js << "   var map = new CM.Map('#{map_id}', cloudmade);"
       # TODO: disable mouse zoom should be an option in an map options class
       js << "   map.disableScrollWheelZoom();"
+      js << "   var added_markers = [];"
+      
+      #add load event
+      js << "   CM.Event.addListener(map, 'load', function() {"
+      js << "     getMapPoints(map.getBounds());"
+      js << "   });"
+      
+      js << "   CM.Event.addListener(map, 'dragend', function() {"
+      js << "     getMapPoints(map.getBounds());"
+      js << "   });"
+      
+      js << <<-JS
+      function add_markers(markers) {
+        $.each(added_markers, function(i, added_marker){
+          map.removeOverlay(added_marker);
+        });
+        added_markers = [];
+        
+        $.each(markers, function(i, marker){
+          var myMarkerLatLng = new CM.LatLng(marker.lat,marker.lng);
+
+          var icon = new CM.Icon();
+          icon.image  = "/images/dot_med.png";
+          icon.iconSize = new CM.Size(21, 21);
+          //icon.shadow  = "/images/map_marker_shadow.png";
+          //icon.shadowSize = new CM.Size(31, 48);
+          //icon.iconAnchor = new CM.Point(20, 48);
+
+          var myMarker = new CM.Marker(myMarkerLatLng, {
+            title: marker.licensee,
+            icon: icon
+          });
+          
+          added_markers.push(myMarker);
+          map.addOverlay(myMarker);
+        });
+
+      }
+
+      function getMapPoints(CMBounds) {
+        console.log('BAR');
+        var sw_CMLatLng = CMBounds.getSouthWest();
+        var sw_point    = [sw_CMLatLng.lat(), sw_CMLatLng.lng()]
+        var ne_CMLatLng = CMBounds.getNorthEast();
+        var ne_point    = [ne_CMLatLng.lat(), ne_CMLatLng.lng()]  
+
+        $.ajax({
+          type:"GET",
+          url:"/cell_sites.js",
+          data:"bounds={sw_point:["+sw_point+"],ne_point:["+ne_point+"]}",
+          dataType:'json',
+          success: add_markers
+        });
+      }
+      JS
+      
       
       if @bounds 
         if @bound_points.size > 1
@@ -50,7 +106,8 @@ module Cloudkicker
         js << marker
       end
       
-      js << '});'
+
+      js << '});' # end $(document).ready
       js << '</script>'
       js.join("\n")
     end

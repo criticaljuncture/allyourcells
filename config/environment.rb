@@ -23,6 +23,9 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
   
+  # geo
+  config.gem "geokit", :lib => 'geokit', :version => '1.5.0'
+  
   # authentication
   config.gem "authlogic", :version => '=2.1.2'
   config.gem 'bcrypt-ruby', :lib =>'bcrypt', :version =>'=2.1.2'
@@ -47,3 +50,4 @@ Rails::Initializer.run do |config|
 end
 
 ActionMailer::Base.smtp_settings = YAML::load(File.open("#{RAILS_ROOT}/config/mail.yml"))["smtp"].symbolize_keys!
+ActiveRecord::Base.include_root_in_json = false
