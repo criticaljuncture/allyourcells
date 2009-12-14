@@ -1,3 +1,6 @@
 <% f.inputs do %>
+  <% if f.object.new_record? %>
+    <%= f.input :email %>
+  <% end %>
   <%= f.input :password, :as => :password %>
 <% end %>
