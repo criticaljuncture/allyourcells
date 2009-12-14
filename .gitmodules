@@ -7,3 +7,6 @@
 [submodule "vendor/plugins/userstamp"]
 	path = vendor/plugins/userstamp
 	url = git://github.com/delynn/userstamp.git
+[submodule "vendor/plugins/geokit-rails"]
+	path = vendor/plugins/geokit-rails
+	url = git://github.com/andre/geokit-rails.git
