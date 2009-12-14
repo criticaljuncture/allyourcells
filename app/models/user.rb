@@ -39,7 +39,6 @@ class User < ActiveRecord::Base
   
   validates_presence_of   :email
   validates_uniqueness_of :login, :allow_nil => true 
-  validates_uniqueness_of :email
   
   validates_presence_of :password, :unless => Proc.new {|u| u.auto_generated }
   validates_length_of :password, :minimum => 6, :allow_nil => true
@@ -51,11 +50,16 @@ class User < ActiveRecord::Base
     write_attribute('email', email_address)
   end
   
-  def deliver_password_reset_instructions!  
+  def deliver_password_reset_instructions!
     reset_perishable_token!
     UserMailer.deliver_password_reset_instructions!(self)
   end
 
+  def deliver_account_activation_instructions!
+    reset_perishable_token!
+    UserMailer.deliver_activation_instructions!(self)
+  end
+  
   def sign_in_type
     'register'
   end

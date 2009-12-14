@@ -17,4 +17,13 @@ class ApplicationController < ActionController::Base
   include Cloudkicker
   
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  
+  protected
+  
+  def require_not_logged_in
+    if current_user
+      redirect_back_or_default root_url
+      return false
+    end
+  end
 end

@@ -1,6 +1,4 @@
 class PasswordResetsController < ApplicationController
-  skip_before_filter :require_login
-  
   before_filter :require_not_logged_in
   before_filter :load_user_using_perishable_token, :only => [:edit,:update]
 
@@ -22,6 +20,7 @@ class PasswordResetsController < ApplicationController
 
   def update
     @user.password = params[:user][:password]
+    @user.active = true
     if @user.save
       flash[:notice] = "Password successfully updated."
       redirect_to root_url

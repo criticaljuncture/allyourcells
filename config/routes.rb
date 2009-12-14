@@ -5,7 +5,8 @@ ActionController::Routing::Routes.draw do |map|
   map.logout   'logout',   :controller => "user_sessions", :action => "destroy"
   map.register 'register', :controller => "users",         :action => "new"
   map.resources :password_resets
-
+  map.create_activation 'activations/:id', :controller => "activations", :action => "create"
+  
   # USERS
   map.resource :account, :controller => "users"
   map.resources :users
