@@ -1,7 +1,9 @@
 <% title 'Change My Password' %>
 
 <% semantic_form_for @user, :url => password_reset_path, :method => :put do |f| %>
-  
+
+  <% flash[:error] = f.error_messages %>
+
   <% f.inputs do %>
     <%= f.input :password %>
   <% end %>

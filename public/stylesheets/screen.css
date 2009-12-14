@@ -196,8 +196,7 @@ body {
   display: none;
   padding: 15px 15px 15px 15px;
   position: absolute;
-  right: -50px;
-  top: 27px;
+  right: 0;
   width: 240px;
   z-index: 2;  
 }
@@ -253,7 +252,7 @@ body {
 }
 #nav ul li {
   float: left;
-  margin-left: 80px;
+  margin-left: 70px;
 }
 #nav ul :first-child {
   margin-left: 0;
@@ -263,8 +262,9 @@ body {
 }
 #nav ul li a {
   color: #4c4c4c;
-  font-family: 'AllerDisplayRegular', sans-serif;  
+  font-family: 'AllerRegular', sans-serif;  
   font-size: 36px;
+  font-weight: bold;
   line-height:normal;
   text-decoration: none;
   text-shadow: 1px 1px 1px #707070;    

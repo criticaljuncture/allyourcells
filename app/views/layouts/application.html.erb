@@ -34,7 +34,7 @@
           <p><%= current_user.email %></p> <%= link_to 'Sign Out', logout_path, :class => 'utility_button' %>
         <% else %>
           <a href="/users/new" id="signin" class="utility_button"><span>Sign in / Sign up</span></a>
-          <div class="signin_form"<%= render :partial => 'users/login_register_form', :locals => { :user => UserSession.new } %></div>          
+          <div class="signin_form"><%= render :partial => 'users/login_register_form', :locals => { :user => UserSession.new } %></div>          
         <% end %>
       </div>
       <%= render :partial => 'layouts/navigation' %>      
@@ -53,7 +53,7 @@
 
       <% unless flash[:error].blank? %>
         <div class="alert">
-          <div class="error"><span>GADZOOKS!</span> <%= flash[:error] %></div>
+          <div class="error"><span>GADZOOKS!</span><%= flash[:error] %></div>
         </div>
       <% end %>
 
