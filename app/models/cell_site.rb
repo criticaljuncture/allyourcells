@@ -21,6 +21,21 @@ class CellSite < ActiveRecord::Base
     apply_bounds_conditions(options, Geokit::Bounds.normalize(bounds))
     options
   }
+  
+  def address2
+    address2 = []
+    if city.present? 
+      address2 << city
+    end
+    if county.present? 
+      address2 << county
+    end
+    if state.present?
+      address2 << state
+    end
+    address2.join(', ')
+  end
+  
   # def self.return_map_pts(bounds)
   #     bounds = 
   #     
