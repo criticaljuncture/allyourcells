@@ -1,7 +1,6 @@
-<% title "Because the airwaves belong to us" %>
-<h1>Hi I am home</h1>
-<h2>Hi I am home</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<% content_for :precolumn do %>
+  <h1 class="topinfo"><span class="cellsite">SEE A CELL SITE?</span> <span class="photo">TAKE A PHOTO.</span><span class="email"> E-MAIL IT TO US.</span></h1>   
+<% end %>
 
 <% add_javascript { @map.to_js } %>
 <div id="map" class='large_map'>

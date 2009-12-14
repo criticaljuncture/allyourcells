@@ -267,6 +267,7 @@ body {
   background: url(/images/hr.png) no-repeat left bottom;
   _background-image: none;
   _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/hr.png', sizingMethod='image');  
+  margin-bottom: 15px;
   padding-bottom: 30px;
   text-align: center;
 }
@@ -285,11 +286,45 @@ body {
   font-size: 15px;
   line-height:normal;
 }
+
+/* FOOTER */
+
 #footer {
   width: 100%;
   position: absolute;
 }  
 
+/* FLASH MESSAGES */
+
+.alert {
+  background: #fff;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 170%, from(rgba(255, 255, 255, 0.8)), to(rgba(175, 173, 164, .9)));    
+  border: 1px solid #afada4;
+  border-bottom-color: #999;
+  border-right-color: #999;  
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 10px 10px 10px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 10px 10px 10px; /* FF 3.5+ */
+  color: #4C4C4C;  
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;     
+  margin: 0 auto;
+  padding: 15px;
+  text-align: center;
+  width: 870px;
+}
+.alert .confirm span {
+    color: #4c4c4c;
+  font-family: 'Helvetica', sans-serif;  
+  font-size: 16px;
+  line-height:normal;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px #707070;  
+}
 /* MAP */
 .loader {
   background: url(/images/loading_bg.png) no-repeat left top;
