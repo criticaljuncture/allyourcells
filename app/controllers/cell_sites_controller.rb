@@ -1,5 +1,10 @@
 class CellSitesController < ApplicationController
   include Geokit
+  
+  def show
+    @cell_site = CellSite.find(params[:id])
+  end
+  
   def index
     if params[:per_page].blank? || params[:per_page].to_i > 500
       per_page = 50
@@ -11,6 +16,7 @@ class CellSitesController < ApplicationController
     @cell_sites = search.paginate(:page => params[:page], :per_page => per_page)
     
     respond_to do |wants|
+      wants.html { redirect_to root_url }
       wants.js do
         if params[:fields] == "limited"
           render :json => @cell_sites.to_json(:only => [:lat, :lng, :licensee, :address, :id], :methods => :address2) 
