@@ -1,5 +1,6 @@
 class CellSite < ActiveRecord::Base
   acts_as_mappable
+  include Geokit::Geocoders
   
   has_attached_file :photo#, :validates_attachment_uniqueness#:styles => { :medium => "300x300>", :thumb => "100x100>" }
   validates_attachment_uniqueness :photo
@@ -16,9 +17,9 @@ class CellSite < ActiveRecord::Base
     self.photo = temp_file
   end
   
-  named_scope :within_bounds, Proc.new {|bounds|
+  named_scope :within_bounds,  Proc.new {|bounds|
     options = {}
-    apply_bounds_conditions(options, Geokit::Bounds.normalize(bounds))
+    apply_bounds_conditions(options, Geokit::Bounds.normalize(bounds["sw_point"], bounds["ne_point"]))
     options
   }
   
@@ -36,6 +37,18 @@ class CellSite < ActiveRecord::Base
     address2.join(', ')
   end
   
+  before_save :reverse_geocode, :if => Proc.new{|cell_site| cell_site.lat.present? && cell_site.state.blank?}
+  
+  private
+  def reverse_geocode
+    res=GoogleGeocoder.reverse_geocode([lat, lng])
+    if res
+      self.city = res.city
+      self.address = res.street_address
+      self.state = res.state
+      self.county = res.province
+    end
+  end
   # def self.return_map_pts(bounds)
   #     bounds = 
   #     

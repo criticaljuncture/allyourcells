@@ -4,7 +4,7 @@
 
 set :application, "allyourcells"
 set :user, "deploy"
-set :port, 5034
+set :port, 22
 
 ssh_options[:paranoid] = false
 set :use_sudo, true
@@ -153,13 +153,12 @@ end
 namespace :deploy do
   desc "Set Symlinks for Static Files (like database.yml)"
   task :update_config, :roles => [:app] do
-    %w(database.yml api_keys.yml production.sphinx.conf newrelic.yml).each do |file|
+    %w(database.yml api_keys.yml mail.yml).each do |file|
       sudo "ln -sf #{shared_path}/config/#{file} #{release_path}/config/#{file}"
     end
     sudo "ln -sf #{shared_path}/config/cloudkicker_config.rb #{release_path}/config/initializers/cloudkicker_config.rb"
     sudo "ln -sf #{shared_path}/log #{release_path}/log"
     sudo "ln -sf #{shared_path}/data #{release_path}/data"
-    sudo "ln -sf #{shared_path}/db/sphinx #{release_path}/db/sphinx"
   end 
 end
 

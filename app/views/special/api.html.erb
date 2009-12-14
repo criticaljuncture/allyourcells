@@ -1,0 +1,83 @@
+<h1>Application Programming Interface</h1>
+
+<p>This is the people's data.  In the interests of making it as accessible as possible, we've introduced an easy-to-use RESTful application programming interface (API).  No need to request an API key, register, or anything like that.</p>
+
+<h2>Supported Formats</h2>
+
+<p>We currently support JSON, XML, and CSV.  To select your format, simple use the appropriate extension.</p>
+
+<pre><code>
+http://allyourcells.com/cell_sites.js
+http://allyourcells.com/cell_sites.xml
+http://allyourcells.com/cell_sites.csv
+</code></pre>
+
+<h2>Number of results</h2>
+
+<p>By default, on each request we return 50 results. You can customize this, requesting up to 500 results at a time, using the <code>per_page</code> parameter:</p>
+
+<pre><code>
+http://allyourcells.com/cell_sites.js?per_page=5
+</code></pre>
+
+<p>You can request additional pages using the <code>page</code> parameter:
+
+<pre><code>
+http://allyourcells.com/cell_sites.js?per_page=5&page=2
+</code></pre>
+
+<h2>Searching</h2>
+
+<p>All search conditions are namespaced:
+
+<pre><code>
+http://allyourcells.com/cell_sites.js?search[conditions][CONDITION_NAME]=VALUE
+</code></pre>
+
+<h3>Columns</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% CellSite.columns.each do |col| %>
+    <tr>
+      <td><%= col.name %></td>
+      <td><%= col.type %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>These columns can be combined with a few modifiers, like <code>COLUMN_NAME_is</code>, <code>COLUMN_NAME_greater_than</code>, and <code>COLUMN_NAME_less_than</code></p>
+<pre><code>
+http://allyourcells.com/cell_sites.js?search[conditions][state_is]=CA
+http://allyourcells.com/cell_sites.js?search[conditions][structure_height_greater_than]=500
+</code></pre>
+
+<p>Multiple conditions can be combied
+<pre><code>
+http://allyourcells.com/cell_sites.js?search[conditions][state_is]=CA&search[conditions][structure_height_greater_than]=500
+</code></pre>
+
+<h3>Geographic Searching</h3>
+
+<p>We currently support a bounding-box search:
+
+<pre><code>
+http://allyourcells.com/cell_sites.js?search[conditions][within_bounds][sw_point]=37.72&[conditions][within_bounds][sw_point]=-122.57&search[conditions][within_bounds][ne_point]=37.83&[conditions][within_bounds][ne_point]=-122.29
+</code></pre>
+
+<h2>Ordering Results</h2>
+
+<p>You can order your results by any column by adding <code>ascend_by_COLUMN_NAME</code> or <code>descend_by_COLUMN_NAME</code>. For example:</p>
+
+<pre><code>
+http://allyourcells.com/cell_sites.js?search[conditions][ascend_by_created_at]=1
+http://allyourcells.com/cell_sites.js?search[conditions][descend_by_structure_height]=1
+</code></pre>
+

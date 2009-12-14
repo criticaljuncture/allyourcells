@@ -430,7 +430,7 @@ ul.entries li {
 }
 
 .large_map div.wml-text-background {
-  opacity: 1;
+  opacity: .7;
 }
 .large_map div.wml-text-background div.wml-copyright-text{
   width: 800px;

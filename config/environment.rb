@@ -18,6 +18,9 @@ Rails::Initializer.run do |config|
   config.gem 'paperclip', :version => '2.3.1.1'
   config.gem 'exifr',     :version => '0.10.9'
   config.gem 'fastercsv', :version => '1.5.0'
+  config.gem 'searchlogic', :version => '2.3.9'
+  config.gem 'will_paginate', :version => '2.3.11'
+  
   require 'net/imap'
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
