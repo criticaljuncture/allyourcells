@@ -52,8 +52,8 @@ class User < ActiveRecord::Base
   end
   
   def deliver_password_reset_instructions!  
-    reset_perishable_token!  
-    PasswordResetNotifier.deliver_password_reset_instructions(self)
+    reset_perishable_token!
+    UserMailer.deliver_password_reset_instructions!(self)
   end
 
   def sign_in_type
