@@ -73,6 +73,10 @@ class EmailMessage
      message.attr["ENVELOPE"].from.first
   end
   
+  def sender_email
+    "#{sender.mailbox}@#{sender.host}"
+  end
+  
   def move_to(folder)
     EmailMessage.connection.copy(message_id, folder)
     EmailMessage.connection.store(message_id, "+FLAGS", [:Deleted])

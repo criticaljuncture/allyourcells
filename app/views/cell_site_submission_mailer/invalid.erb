@@ -1,3 +1,11 @@
-CellSiteSubmissions#invalid
+Hi there,
 
-Find me in app/views/cell_site_submissions/invalid.erb
+We were not able to accept your cell site submission (subject: <%= @subject %>) because of the following errors:
+<% @errors.each do |error| %>
+  * <%= error %>
+<% end %>
+Please try again!
+
+Thanks,
+
+AllYourCells

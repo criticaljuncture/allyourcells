@@ -9,12 +9,14 @@ namespace :cell_sites do
           puts "#{email_submission.message_id} SAVED"
           if email_submission.cell_site.creator.active?
             puts "thank you active user!"
+            CellSiteSubmissionMailer.deliver_valid_known_user!(email_submission)
           else
             puts "inactive user!"
+            CellSiteSubmissionMailer.deliver_valid_unknown_user!(email_submission)
           end
         else
           puts "#{email_submission.message_id} INVALID: #{email_submission.errors}"
-          # send error email
+          CellSiteSubmissionMailer.deliver_invalid!(email_submission)
         end
       end
       
