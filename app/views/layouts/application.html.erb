@@ -10,11 +10,12 @@
   <meta name="author" content="Andrew Carpenter, Bob Burbach, Dave Augustine" />
   
   <%= stylesheet_link_tag "screen", :media => :screen %>
+  <%= stylesheet_link_tag "grid", :media => :screen %>
   <%= stylesheet_link_tag "fonts/stylesheet", :media => :screen %>
-  
   <%= javascript_include_tag 'jquery.js'                %>
   <%= javascript_include_tag 'jquery-ui.js'             %>
   <%= javascript_include_tag 'jrails.js'                %>
+  <%= javascript_include_tag 'raphael-min-1.2.6.js'     %>
   <%= javascript_include_tag 'application.js'           %>
 
   <%= yield :javascripts %>
@@ -64,22 +65,16 @@
             </div>
           <% end %>
           
-          <div class="col1 <%= yield :column_class %>">
+          <div class="container_12 clearfix">
             <%= yield %>
           </div>
-          
-          <% if yield :sidebar %>
-          <div class="col2 <%= yield :column_class %>">
-            <div class="sidebar">
-              <%= yield :sidebar %>
-            </div>
-          </div>
-          <% end %>
           
       </div><!-- content end -->
       
     </div>
     <!-- MAIN end -->
+
+    <div class="bottom"></div>
 
   </div>
   <!-- WRAPPER end -->

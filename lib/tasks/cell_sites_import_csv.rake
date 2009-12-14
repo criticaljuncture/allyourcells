@@ -9,7 +9,7 @@ namespace :cell_sites do
         cell_site_attributes.delete('lng_dir')
         
         cell_site_attributes['lat'] = sexagesimal_to_decimal_degrees(*cell_site_attributes.delete('lat_dms').split(','))
-        cell_site_attributes['lng'] = sexagesimal_to_decimal_degrees(*cell_site_attributes.delete('lng_dms').split(','))
+        cell_site_attributes['lng'] = sexagesimal_to_decimal_degrees(*cell_site_attributes.delete('lng_dms').split(',')) * -1
         
         cell_site = CellSite.new(cell_site_attributes)
         cell_site.save!
