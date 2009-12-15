@@ -360,14 +360,17 @@ body {
   margin-bottom: 30px;
 }
 #main .content dl {
- font-family: Helvetica, sans-serif; 
+  font-family: 'AllerRegular', sans-serif;  
 }
 #main .content dt {
+  color: #85705e;
   font-weight: bold;
+  font-size: 14px;   
   margin-top: 5px;
 }
 #main .content dd {
-  
+  color: #ad9d8e;
+  font-size: 12px;   
 }
 ul.entries {
   border-top: 1px solid #ccc;  
@@ -518,7 +521,7 @@ ul.entries li {
   width: 92px;
   z-index: 99999;
 }
-#map{
+.large_map #map {
   width: 785px;
   height: 395px; 
   margin: 0 auto;
@@ -536,7 +539,6 @@ ul.entries li {
   -webkit-border-bottom-left-radius: 10px;    
   -moz-border-radius-bottomright: 10px;
   -webkit-border-bottom-right-radius: 10px;     
-  
   position:relative;
 }
 
@@ -549,8 +551,22 @@ ul.entries li {
 .medium_map {
   width: 350px;
   height: 320px;
-  margin: 0 auto;
-  padding: 0 1em;
+  position:relative;  
+}
+.medium_map #map {
+  width: 350px;
+  height: 320px;  
+}
+
+.map_container {
+  background: #e1e2db;
+  padding: 10px;
+  border: 1px solid #e1e2db;
+   -moz-border-radius: 10px;
+   -webkit-border-radius: 10px;
+   border-radius: 10px; /* future proofing */
+   -khtml-border-radius: 10px; /* for old Konqueror browsers */
+  position:relative;
 }
 
 .medium_map div.wml-info-window-content ul {
@@ -568,6 +584,9 @@ ul.entries li {
   -khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
 
-.wml-info-window-content ul li {
-  list-style-position: inside;
+#main .content .wml-info-window-content dt {
+  font-size: 12px;
 }
+#main .content .wml-info-window-content dd {
+  font-size: 11px;
+} 

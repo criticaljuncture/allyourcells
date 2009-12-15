@@ -1,18 +1,37 @@
+<% title 'View Cell Site' %>
+
 <% if @cell_site.photo_file_name %>
-  <%= image_tag @cell_site.photo.url %>
+  <div class="grid_7 alpha">
+    <%= image_tag @cell_site.photo.url %>
+  </div>
 <% end %>
 
-<dl>
-  <% %w(address city county state nepa qzone supporting_structure_height structure_height structure_type license_id).each do |col| %>
-    <% val = @cell_site.send(col) %>
-    <% if val.present? %>
-      <dt><%= col.humanize.capitalize_most_words %></dt>
-      <dd><%= val %></dd>
-    <% end %>
-  <% end %>
-</dl>
+<div class="map_container clearfix">
 
-<% add_template(:partial => 'maps/markers/cell_tower_template') %>
-<% add_template(:partial => 'maps/markers/cell_site_template') %>
-<% add_javascript { @map.to_js } %>
-<div id="map" class='medium_map'></div>
+<div class="grid_6 alpha">
+  <% add_template(:partial => 'maps/markers/cell_tower_template') %>
+  <% add_template(:partial => 'maps/markers/cell_site_template') %>
+  <% add_javascript { @map.to_js } %>
+  <div class='medium_map'>
+    <div id="map">
+    </div>
+    <div class="loader">
+      <img src="/images/loading.gif" />
+    </div>
+  </div> <!-- MAP end -->
+</div>
+
+
+<div class="grid_4 alpha">
+  <dl>
+    <% %w(address city county state nepa qzone supporting_structure_height structure_height structure_type license_id).each do |col| %>
+      <% val = @cell_site.send(col) %>
+      <% if val.present? %>
+        <dt><%= col.humanize.capitalize_most_words %></dt>
+        <dd><%= val %></dd>
+      <% end %>
+    <% end %>
+  </dl>
+</div>
+
+</div>
