@@ -1,8 +1,6 @@
 class SpecialController < ApplicationController
   def home
-    lat = 37.778
-    long = -122.436
-    @map = create_map(lat, long)
+    @map = create_map(current_location.lat, current_location.lng)
   end
   
   def api

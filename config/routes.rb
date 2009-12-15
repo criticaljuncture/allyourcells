@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   
   # CELL SITES
   map.resources :cell_sites
+  map.resource :location
   
   # SPECIAL PAGES
   map.root :controller => 'special', :action => 'home'

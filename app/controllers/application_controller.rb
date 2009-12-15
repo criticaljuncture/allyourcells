@@ -14,6 +14,8 @@ class ApplicationController < ActionController::Base
   # mapping
   include Cloudkicker
   include MapHelper
+  include Locator
+  helper_method :current_location
   
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   

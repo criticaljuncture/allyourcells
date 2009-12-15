@@ -1,0 +1,8 @@
+<% semantic_form_for current_location, :url => location_path, :html_options => {:method => :put} do |f| %>
+  <% f.inputs do %>
+    <%= f.input :full_address, :label => "Location", :hint => "eg 94118, San Francisco" %>
+  <% end %>
+  <% f.buttons do %>
+    <input class="awesome orange create" id="user_session_submit" name="commit" type="submit" value="Change Location" />
+  <% end %>
+<% end %>

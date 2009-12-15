@@ -1,0 +1,1 @@
+Geokit::Geocoders::ip_provider_order = ['geoip']
