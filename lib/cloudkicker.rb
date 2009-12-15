@@ -48,7 +48,14 @@ module Cloudkicker
           var myMarkerLatLng = new CM.LatLng(marker.lat,marker.lng);
 
           var icon = new CM.Icon();
-          icon.image  = "/images/dot_med.png";
+          if(marker.tower) {
+            icon.image  = "/images/dot_med.png";
+          }
+          else
+          {
+            icon.image  = "/images/dot_med_blue.png";
+          }
+          
           icon.iconSize = new CM.Size(21, 21);
           //icon.shadow  = "/images/map_marker_shadow.png";
           //icon.shadowSize = new CM.Size(31, 48);
@@ -60,7 +67,14 @@ module Cloudkicker
           });
           
           CM.Event.addListener(myMarker, 'click', function(latlng){
-            map.openInfoWindow(myMarkerLatLng, parseTemplate($("#cell_site_template").html(), marker), {maxWidth: 400, pixelOffset: new CM.Size(0,-10)});
+            if(marker.tower) {
+              map.openInfoWindow(myMarkerLatLng, parseTemplate($("#cell_tower_template").html(), marker), {maxWidth: 400, pixelOffset: new CM.Size(0,-10)});
+            }
+            else
+            {
+              console.log(marker);
+              map.openInfoWindow(myMarkerLatLng, parseTemplate($("#cell_site_template").html(), marker), {maxWidth: 400, pixelOffset: new CM.Size(0,-10)});
+            }
           });
           
           

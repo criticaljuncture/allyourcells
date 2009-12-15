@@ -19,7 +19,7 @@ class CellSitesController < ApplicationController
       wants.html { redirect_to root_url }
       wants.js do
         if params[:fields] == "limited"
-          render :json => @cell_sites.to_json(:only => [:lat, :lng, :licensee, :address, :id], :methods => :address2) 
+          render :json => @cell_sites.to_json(:only => [:lat, :lng, :licensee, :address, :id], :methods => [:address2, :thumbnail_url, :tower]) 
         else
           render :json => @cell_sites
         end
