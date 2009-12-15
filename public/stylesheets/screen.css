@@ -590,3 +590,12 @@ ul.entries li {
 #main .content .wml-info-window-content dd {
   font-size: 11px;
 } 
+
+.cell_site_photo img {
+  display: block;
+  margin: 0 auto 15px auto;
+}
+
+.map_container .medium_map {
+  margin: 0 auto;
+}

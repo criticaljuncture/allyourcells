@@ -1,14 +1,15 @@
 <% title 'View Cell Site' %>
+ 
+<div class="map_container clearfix"> 
 
+<div class="grid_7 alpha">
+    
 <% if @cell_site.photo_file_name %>
-  <div class="grid_7 alpha">
+  <div class="cell_site_photo">
     <%= link_to image_tag(@cell_site.photo.url(:medium)), @cell_site.photo.url %>
   </div>
 <% end %>
 
-<div class="map_container clearfix">
-
-<div class="grid_6 alpha">
   <% add_template(:partial => 'maps/markers/cell_tower_template') %>
   <% add_template(:partial => 'maps/markers/cell_site_template') %>
   <% add_javascript { @map.to_js } %>
@@ -19,7 +20,8 @@
       <img src="/images/loading.gif" />
     </div>
   </div> <!-- MAP end -->
-</div>
+  
+</div> <!-- LEFT END -->
 
 
 <div class="grid_4 alpha">
