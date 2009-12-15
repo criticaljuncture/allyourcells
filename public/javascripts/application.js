@@ -2,6 +2,8 @@
 // This file is automatically included by javascript_include_tag :defaults
 $(document).ready(function() {
   
+  $(".location form input:hints").inlineFormElements();
+  
   $("#signin").bind("click",function(e){
     e.preventDefault();
     $(this).toggleClass("open");

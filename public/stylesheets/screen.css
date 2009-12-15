@@ -223,6 +223,15 @@ body {
 .forgot:hover {
   text-decoration: underline;
 }
+.formtastic .inputs li {
+  position: relative;
+}
+.formtastic .inputs li p.inline-hints  {
+  padding-left: 20px;
+  position: absolute;
+  left: 360px;
+  top: 16px;  
+}
 .formtastic .inputs li.error {
   position: relative;
 }
@@ -409,7 +418,61 @@ ul.entries li {
 .alert .error .errorExplanation ul li {
   list-style-position: inside;
 }
+
+
 /* MAP */
+
+.location {
+  background: #e1e2db;
+  border: 1px solid #e1e2db;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; /* future proofing */
+  -khtml-border-radius: 5px; /* for old Konqueror browsers */
+  padding: 10px 10px 0 10px;  
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;    
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-bottom-right-radius: 0;       
+}
+
+#main .content .location p {
+  color: #9A9B91;
+  float: left;  
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;  
+  line-height: 23px;
+  margin-right: 5px;
+  text-transform: uppercase; 
+}
+#main .content .location p.inline-hints {
+  left: 10px;
+  top: 2px;
+  padding: 0;
+  color: #ccc;
+}
+.location form {
+
+}
+.location form .buttons input {
+  padding: 3px;
+}
+.location form .inputs label {
+  display: none;
+}
+.location form .inputs {
+  margin: 0;
+}
+.location form .buttons {
+  margin: 0;
+  position: relative;
+
+}
+.location form .buttons input {
+  top: -23px;  
+  position: absolute;
+}
 .loader {
   background: url(/images/loading_bg.png) no-repeat left top;
   display: none;
@@ -420,13 +483,24 @@ ul.entries li {
   width: 92px;
   z-index: 99999;
 }
-
+#map{
+  width: 785px;
+  height: 395px; 
+  margin: 0 auto;
+}
 .large_map {
-  width: 800px;
+  width: 802px;
   height: 400px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
+  background: #e1e2db;
+  padding-bottom: 5px;
+  border: 1px solid #e1e2db;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-left-radius: 10px;    
+  -moz-border-radius-bottomright: 10px;
+  -webkit-border-bottom-right-radius: 10px;     
 }
 
 .large_map div.wml-text-background {

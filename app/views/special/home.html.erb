@@ -2,17 +2,22 @@
   <h1 class="topinfo"><span class="cellsite">SEE A CELL SITE?</span> <span class="photo">TAKE A PHOTO.</span><span class="email"> E-MAIL IT TO US.</span></h1>   
 <% end %>
 
+<div class="location">
+  <p>Change location to</p>
+  <%= render :partial => "locations/form" %>
+</div>
+
 <% add_template(:partial => 'maps/markers/cell_tower_template') %>
 <% add_template(:partial => 'maps/markers/cell_site_template') %>
 <% add_javascript { @map.to_js } %>
-<div id="map" class='large_map'>
-  
+<div class='large_map'>
+  <div id="map">
+    </div>
 <div class="loader">
   <img src="/images/loading.gif" />
 </div>
 
 </div> <!-- MAP end -->
-<%= render :partial => "locations/form" %>
 
 <div class="grid_7 suffix_1 alpha">
   <h2>About</h2>
