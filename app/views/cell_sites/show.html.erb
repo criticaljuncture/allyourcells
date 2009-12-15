@@ -1,5 +1,5 @@
 <% if @cell_site.photo_file_name %>
-  <%= image_tag @cell_site.photo.url %>
+  <%= link_to image_tag(@cell_site.photo.url(:medium)), @cell_site.photo.url %>
 <% end %>
 
 <dl>
