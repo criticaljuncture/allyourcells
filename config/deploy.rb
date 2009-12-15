@@ -159,6 +159,7 @@ namespace :deploy do
     sudo "ln -sf #{shared_path}/config/cloudkicker_config.rb #{release_path}/config/initializers/cloudkicker_config.rb"
     sudo "ln -sf #{shared_path}/log #{release_path}/log"
     sudo "ln -sf #{shared_path}/data #{release_path}/data"
+    sudo "ln -sf #{shared_path}/system #{release_path}/public/system"
   end 
 end
 
