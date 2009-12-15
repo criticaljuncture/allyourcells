@@ -2,7 +2,7 @@ class CellSiteSubmissionMailer < ActionMailer::Base
   def valid_known_user(submission)
     subject    'Cell Site Accepted'
     recipients submission.cell_site.creator.email
-    # bcc        'contact@allyourcells.com' if ENV['RAILS_ENV'] == 'production'
+    bcc        'contact@allyourcells.com' if ENV['RAILS_ENV'] == 'production'
     from       'submit@allyourcells.com'
     sent_on    Time.now
     
@@ -12,7 +12,7 @@ class CellSiteSubmissionMailer < ActionMailer::Base
   def valid_unknown_user(submission)
     subject    "Cell Site Accepted Pending Account Creation"
     recipients submission.cell_site.creator.email
-    # bcc        'contact@allyourcells.com' if ENV['RAILS_ENV'] == 'production'
+    bcc        'contact@allyourcells.com' if ENV['RAILS_ENV'] == 'production'
     from       'submit@allyourcells.com'
     sent_on    Time.now
     
@@ -22,7 +22,7 @@ class CellSiteSubmissionMailer < ActionMailer::Base
   def invalid(submission)
     subject    "Invalid Submission"
     recipients submission.sender_email
-    # bcc        'contact@allyourcells.com' if ENV['RAILS_ENV'] == 'production'
+    bcc        'contact@allyourcells.com' if ENV['RAILS_ENV'] == 'production'
     from       'submit@allyourcells.com'
     sent_on    Time.now
     
