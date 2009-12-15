@@ -5,7 +5,7 @@ $(document).ready(function() {
   $("#geokit_geo_loc_full_address").removeAttr("value");
   $(".location form input:hints").inlineFormElements();
   
-  $('a.lightbox').colorbox({{transition:'fade', speed:500}}, callback)
+  $('a.lightbox').colorbox({{transition:'fade', speed:500}});
   
   $("#signin").bind("click",function(e){
     e.preventDefault();
