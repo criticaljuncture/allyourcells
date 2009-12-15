@@ -2,7 +2,7 @@ class CellSitesController < ApplicationController
   include Geokit
   
   def show
-    @cell_site = CellSite.find(params[:id])
+    @cell_site = CellSite.from_active_user.find(params[:id])
   end
   
   def index
@@ -12,7 +12,7 @@ class CellSitesController < ApplicationController
       per_page = params[:per_page]
     end
     
-    search = CellSite.search(params[:search])
+    search = CellSite.from_active_user.search(params[:search])
     @cell_sites = search.paginate(:page => params[:page], :per_page => per_page)
     
     respond_to do |wants|

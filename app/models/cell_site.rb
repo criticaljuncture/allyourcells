@@ -7,6 +7,7 @@ class CellSite < ActiveRecord::Base
   
   validates_presence_of :lat, :lng
   
+  named_scope :from_active_user, :include => :creator, :conditions => "users.id IS NULL OR users.active = 1"
   named_scope :tower, :conditions => 'license_id IS NOT NULL'
   
   def photo_content=(string)
