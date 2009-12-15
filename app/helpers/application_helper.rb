@@ -9,11 +9,11 @@ module ApplicationHelper
     end
   end
   def alert_exclamation
-    choices = ["AHOY", "AHEM", "WELL DONE", "TALLY HO"]
+    choices = ["AHOY", "GOLLY", "WELL DONE", "TALLY HO", "GEE WHIZ", "SPLENDIFEROUS", "YEEHAW", "BOOYAH"]
     choices[rand(choices.length)] 
   end  
   def error_exclamation
-    choices = ["SCHNIKES", "JINKIES", "EGAD", "OH DEAR", "GOOD GRIEF", "ZOINKS"]
+    choices = ["SCHNIKES", "JINKIES", "EGAD", "OH DEAR", "GOOD GRIEF", "ZOINKS", "AHEM", "GEE WILLIKERS"]
     choices[rand(choices.length)] 
   end
 end
