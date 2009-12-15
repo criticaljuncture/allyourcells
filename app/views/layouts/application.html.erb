@@ -12,14 +12,15 @@
   <%= stylesheet_link_tag "screen", :media => :screen %>
   <%= stylesheet_link_tag "grid", :media => :screen %>
   <%= stylesheet_link_tag "fonts/stylesheet", :media => :screen %>
+  <%= stylesheet_link_tag "jquery.lightbox-0.5", :media => :screen %>  
   <%= javascript_include_tag 'jquery.js'                %>
   <%= javascript_include_tag 'jquery-ui.js'             %>
   <%= javascript_include_tag 'jrails.js'                %>
   <%= javascript_include_tag 'raphael-min-1.2.6.js'     %>
   <%= javascript_include_tag 'application.js'           %>
   <%= javascript_include_tag 'template_parser.js'       %>
-  <%= javascript_include_tag 'jquery.inlinelabel.js'       %>
-  <%= javascript_include_tag 'jquery.colorbox-min.js'       %>
+  <%= javascript_include_tag 'jquery.inlinelabel.js'          %>
+  <%= javascript_include_tag 'jquery.lightbox-0.5.min.js'     %>
 
   <%= yield :javascripts %>
   
