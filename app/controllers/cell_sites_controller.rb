@@ -3,6 +3,7 @@ class CellSitesController < ApplicationController
   
   def show
     @cell_site = CellSite.from_active_user.find(params[:id])
+    @map = create_map(@cell_site.lat, @cell_site.lng)
   end
   
   def index
