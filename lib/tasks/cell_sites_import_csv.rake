@@ -8,6 +8,10 @@ namespace :cell_sites do
         cell_site_attributes.delete('lat_dir')
         cell_site_attributes.delete('lng_dir')
         
+        ['address', 'city', 'county'].each do |col|
+          cell_site_attributes[col] = cell_site_attributes[col].try(:downcase).try(:capitalize_most_words)
+        end
+        
         cell_site_attributes['lat'] = sexagesimal_to_decimal_degrees(*cell_site_attributes.delete('lat_dms').split(','))
         cell_site_attributes['lng'] = sexagesimal_to_decimal_degrees(*cell_site_attributes.delete('lng_dms').split(',')) * -1
         

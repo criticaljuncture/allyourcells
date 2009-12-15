@@ -1,11 +1,13 @@
 <script id="cell_tower_template" type="text/html">
-  <h5><a href='/cell_sites/<#= id #>'><#= licensee #></a></h5>
-  <ul>
+  <dl>
+    <dt>Licensee</dt>
+    <dd><a href='/cell_sites/<#= id #>'><#= licensee #></a></dd>
     <# if(address != ''){ #>
-      <li><#= address #></li>
+      <dt>Address</dt>
+      <dd><#= address #></dd>
     <# } #>
     <# if(address2 != ''){ #>
-      <li><#= address2 #></li>
+      <dd><#= address2 #></dd>
     <# } #>
-  </ul>
+  </dl>
 </script>
