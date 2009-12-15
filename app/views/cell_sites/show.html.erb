@@ -2,7 +2,7 @@
 
 <% if @cell_site.photo_file_name %>
   <div class="grid_7 alpha">
-    <%= image_tag @cell_site.photo.url %>
+    <%= link_to image_tag(@cell_site.photo.url(:medium)), @cell_site.photo.url %>
   </div>
 <% end %>
 
