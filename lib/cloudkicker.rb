@@ -72,7 +72,6 @@ module Cloudkicker
             }
             else
             {
-              console.log(marker);
               map.openInfoWindow(myMarkerLatLng, parseTemplate($("#cell_site_template").html(), marker), {maxWidth: 400, pixelOffset: new CM.Size(0,-10)});
             }
           });

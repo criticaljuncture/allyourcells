@@ -1,3 +1,18 @@
-<% if @cell_site.photo %>
+<% if @cell_site.photo_file_name %>
   <%= image_tag @cell_site.photo.url %>
 <% end %>
+
+<dl>
+  <% %w(address city county state nepa qzone supporting_structure_height structure_height structure_type license_id).each do |col| %>
+    <% val = @cell_site.send(col) %>
+    <% if val.present? %>
+      <dt><%= col.humanize.capitalize_most_words %></dt>
+      <dd><%= val %></dd>
+    <% end %>
+  <% end %>
+</dl>
+
+<% add_template(:partial => 'maps/markers/cell_tower_template') %>
+<% add_template(:partial => 'maps/markers/cell_site_template') %>
+<% add_javascript { @map.to_js } %>
+<div id="map" class='medium_map'></div>
