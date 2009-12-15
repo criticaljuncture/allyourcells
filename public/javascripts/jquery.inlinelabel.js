@@ -22,7 +22,14 @@
     this.each(function() {
       
       var inlineItem = $(this).getInlineItem();
-
+      var input = $(this);
+      
+      //prevent the label from being selected
+      $(inlineItem).bind("mousedown", function(e) { 
+        e.preventDefault(); 
+        $(input).trigger("focus"); 
+      });
+      
       //if the input field is empty show the hint
       !$(this).val() ? $(inlineItem).show() : $(inlineItem).hide();
       

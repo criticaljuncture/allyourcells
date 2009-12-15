@@ -101,7 +101,6 @@ body {
 .formtastic {
   font-family: Helvetica, Arial, Sans-Serif;
   font-size: 12px;
- 
 }
 .formtastic label {
   color: #524c46;  
@@ -124,14 +123,19 @@ body {
   -khtml-border-radius: 4px; /* for old Konqueror browsers */ 
   border-top-color: #B1B1B1;
   display: block;  
-  height: 18px;
-  margin-bottom: 5px;
-  width: 350px  
+  height: 12px;
+  line-height: 18px;  
+  margin-bottom: 5px;  
+  padding: 3px;
+  width: 350px;    
 }
 
 .formtastic .label {
   display: block;
   padding-bottom: 8px;
+}
+.formtastic .inputs {
+  width: 100%;
 }
 .formtastic .inputs label {
   font-size: 14px;
@@ -448,12 +452,12 @@ ul.entries li {
 }
 #main .content .location p.inline-hints {
   left: 10px;
-  top: 2px;
+  top: 0;
   padding: 0;
   color: #ccc;
 }
-.location form {
-
+.location form .inputs {
+  width: 350px;
 }
 .location form .buttons input {
   padding: 3px;
@@ -470,14 +474,15 @@ ul.entries li {
 
 }
 .location form .buttons input {
-  top: -23px;  
+  top: -22px;  
   position: absolute;
 }
 .loader {
   background: url(/images/loading_bg.png) no-repeat left top;
   display: none;
-  bottom: 0;
+  bottom: 10px;
   height: 111px;
+  left: 10px;
   opacity: .75;  
   position:absolute;
   width: 92px;
@@ -501,6 +506,8 @@ ul.entries li {
   -webkit-border-bottom-left-radius: 10px;    
   -moz-border-radius-bottomright: 10px;
   -webkit-border-bottom-right-radius: 10px;     
+  
+  position:relative;
 }
 
 .large_map div.wml-text-background {

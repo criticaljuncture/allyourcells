@@ -2,6 +2,8 @@
 // This file is automatically included by javascript_include_tag :defaults
 $(document).ready(function() {
   
+  $("#geokit_geo_loc_full_address").removeAttr("value");
+  
   $(".location form input:hints").inlineFormElements();
   
   $("#signin").bind("click",function(e){
