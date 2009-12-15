@@ -399,19 +399,34 @@ pre {
   font-size: 12px;
   padding: 10px 0;
 }
-.count {
+#main .content ul.entries .count {
   padding: 3px 6px 2px 7px;
   background: #cee9e5;
   color: #7f8f8c;
+  position: relative;
   border: 1px solid #cee9e5;
-  -moz-border-radius: 25px;
-  -webkit-border-radius: 25px;
-  border-radius: 25px; /* future proofing */
-  -khtml-border-radius: 25px; /* for old Konqueror browsers */
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
   font-weight: bold;
   text-shadow: 1px 1px 1px #cee9e5;  
+  margin-right: 10px;
 }
-
+#main .content a:link {
+  color: #3a3c4d;
+  text-decoration: none;
+}
+#main .content a:hover {
+  border-bottom: 1px dotted #3a3c4d;
+}
+#main .content a:visited {
+  color: #7f8f8c;
+  text-decoration: none;  
+}
+#main .content a:visited:hover {
+  border-bottom: 1px dotted #7f8f8c;  
+}
 /* FOOTER */
 
 #footer {
@@ -630,4 +645,12 @@ table thead tr th{
 }
 table tbody td {
   padding-right: 30px;
+}
+
+.bignum {
+  font-size:60px;
+  float: left;
+  line-height:46px;
+  padding: 0 20px 0 0;
+  margin: 0;
 }
