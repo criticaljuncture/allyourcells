@@ -23,7 +23,7 @@ class String
   # Capitalizes only the first character of a string (unlike "string".capitalize), leaving the rest
   # untouched.  spinach => Spinach, CD => CD, cat => Cat, crAzY => CrAzY
   def capitalize_first
-    string = self[0,1].capitalize + self[1, self.length]
+    string = [self[0,1].capitalize, self[1, self.length]].join
     return string
   end
   
