@@ -324,6 +324,9 @@ body {
   padding: 10px 30px;
   width: 810px;
 }
+pre {
+  overflow: auto;
+}
 #main .content h1 {
   color: #554641;
   font-family: 'AllerDisplayRegular', sans-serif;  
@@ -348,6 +351,14 @@ body {
   font-family: 'AllerLightRegular', sans-serif;  
   font-size: 26px;
   line-height:normal;
+  margin: 10px 0;
+}
+#main .content h3 {
+  color: #85705e;
+  font-family: 'AllerLightRegular', sans-serif;  
+  font-size: 16px;
+  line-height:normal;
+  margin: 15px 0;
 }
 #main .content p {
   color: #666;
@@ -358,6 +369,12 @@ body {
 }
 #main .content ul {
   margin-bottom: 30px;
+  padding-left: 15px;
+}
+#main .content ul li {
+  color: #666;
+  font-family: 'AllerRegular', sans-serif;  
+  font-size: 15px;
 }
 #main .content dl {
   font-family: 'AllerRegular', sans-serif;  
@@ -372,12 +389,14 @@ body {
   color: #ad9d8e;
   font-size: 12px;   
 }
-ul.entries {
+#main .content ul.entries {
   border-top: 1px solid #ccc;  
   list-style-type: none;
+  padding: 0;
 }
-ul.entries li {
+#main .content ul.entries li {
   border-bottom: 1px solid #ccc;
+  font-size: 12px;
   padding: 10px 0;
 }
 .count {
@@ -598,4 +617,17 @@ ul.entries li {
 
 .map_container .medium_map {
   margin: 0 auto;
+}
+table  {
+  margin-bottom: 10px;
+}
+table thead {
+  text-align: left;
+}
+table thead tr th{
+    border-bottom: 1px solid #ccc;
+
+}
+table tbody td {
+  padding-right: 30px;
 }
