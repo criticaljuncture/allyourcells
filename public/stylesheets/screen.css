@@ -24,6 +24,8 @@ body {
   }
 #header_wrapper {
   background: url(/images/header.png) repeat-x left -35px;
+  position: relative;
+  z-index: 9999;
 }
 
 #header { 
@@ -50,6 +52,7 @@ body {
   position: absolute;
   right: -50px;
   top: 15px;  
+  z-index: 9999;
 }
 #utility p {
   color: #847c72;
@@ -65,6 +68,7 @@ body {
   -webkit-border-radius: 5px;
   border-radius: 5px; /* future proofing */
   -khtml-border-radius: 5px; /* for old Konqueror browsers */
+  *display: block;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 12px;
   font-weight: bold; 
@@ -241,7 +245,8 @@ body {
 }
 .formtastic .inputs li.error p.inline-errors {
   background: url(/images/error.gif) no-repeat left 2px;
-  padding-left: 20px;
+  padding: 0 0 5px 20px;
+  *padding: 2px 0 5px 20px;
   position: absolute;
   left: 360px;
   top: 16px;
@@ -261,11 +266,12 @@ body {
 }
 #nav ul {
   list-style: none inside;
+  margin-top: 3px;
   padding: 0 100px;
 }
 #nav ul li {
   float: left;
-  margin-left: 70px;
+  margin-left: 95px;
 }
 #nav ul :first-child {
   margin-left: 0;
@@ -344,13 +350,24 @@ body {
   line-height:normal;
 }
 #main .content p {
-  color: #3a3331;
+  color: #666;
   font-family: 'AllerRegular', sans-serif;  
   font-size: 15px;
   line-height:normal;
+  margin-bottom: 10px;
 }
 #main .content ul {
   margin-bottom: 30px;
+}
+#main .content dl {
+ font-family: Helvetica, sans-serif; 
+}
+#main .content dt {
+  font-weight: bold;
+  margin-top: 5px;
+}
+#main .content dd {
+  
 }
 ul.entries {
   border-top: 1px solid #ccc;  
@@ -446,37 +463,50 @@ ul.entries li {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 13px;
   font-weight: bold;  
-  line-height: 23px;
+  line-height: 33px;
   margin-right: 5px;
+  margin-bottom: 0;
   text-transform: uppercase; 
 }
-#main .content .location p.inline-hints {
-  left: 10px;
-  top: 0;
-  padding: 0;
-  color: #ccc;
+.location form {
+  position: relative;
+  padding: 5px 0;
 }
+
 .location form .inputs {
+  margin: 0;
   width: 350px;
-}
-.location form .buttons input {
-  padding: 3px;
+  float: left;
 }
 .location form .inputs label {
   display: none;
 }
-.location form .inputs {
-  margin: 0;
+.location form .inputs li input {
+  *top: 10px;
+  *margin-top: -7px;
+}
+
+.location form .inputs li input {
+  width: 340px;
+}
+#main .content .location p.inline-hints {
+  left: 10px;
+  line-height: 23px;
+  top: 0;
+  *top: 7px;
+  padding: 0;
+  color: #ccc;
+  position: absolute;
 }
 .location form .buttons {
   margin: 0;
-  position: relative;
-
+  float: left;
 }
 .location form .buttons input {
-  top: -22px;  
-  position: absolute;
+  margin-left: 5px;
+  padding: 2px 3px;  
 }
+
 .loader {
   background: url(/images/loading_bg.png) no-repeat left top;
   display: none;
@@ -529,4 +559,15 @@ ul.entries li {
 
 .medium_map div.wml-info-window-content ul li{
   margin-left: 10px;
+}
+
+.wml-info-window-content {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+}
+
+.wml-info-window-content ul li {
+  list-style-position: inside;
 }
