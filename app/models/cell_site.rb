@@ -2,7 +2,7 @@ class CellSite < ActiveRecord::Base
   acts_as_mappable
   include Geokit::Geocoders
   
-  has_attached_file :photo#, :validates_attachment_uniqueness#:styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   validates_attachment_uniqueness :photo
   
   validates_presence_of :lat, :lng
