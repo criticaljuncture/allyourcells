@@ -3,8 +3,9 @@
 $(document).ready(function() {
   
   $("#geokit_geo_loc_full_address").removeAttr("value");
-  
   $(".location form input:hints").inlineFormElements();
+  
+  $('a.lightbox').lightBox();
   
   $("#signin").bind("click",function(e){
     e.preventDefault();

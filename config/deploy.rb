@@ -241,7 +241,7 @@ namespace :database do
         puts db_exists
       end
     end
-    return db_exists
+    db_exists
   end
 end
 

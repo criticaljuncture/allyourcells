@@ -21,16 +21,10 @@ module Locator
   private
   
   def default_location
-    # Geokit::GeoLoc.new(
-    #   :lng   => -122.436,
-    #   :lat   => 37.778,
-    #   :city  => "San Francisco",
-    #   :state => "CA"
-    # )
     Geokit::GeoLoc.new(
-      :lng   => -122.073196411133,
-      :lat   => 37.3973999023438,
-      :city  => "Mountain View",
+      :lng   => -122.436,
+      :lat   => 37.778,
+      :city  => "San Francisco",
       :state => "CA"
     )
   end

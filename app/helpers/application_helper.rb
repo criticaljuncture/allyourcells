@@ -13,7 +13,7 @@ module ApplicationHelper
     choices[rand(choices.length)] 
   end  
   def error_exclamation
-    choices = ["SCHNIKES", "JINKIES", "EGAD", "OH DEAR", "GOOD GRIEF", "ZOINKS", "AHEM", "GEE WILLIKERS"]
+    choices = ["SCHNIKES", "JINKIES SCOOB", "EGAD", "OH DEAR", "GOOD GRIEF", "ZOINKS", "AHEM", "GEE WILLIKERS"]
     choices[rand(choices.length)] 
   end
 end
