@@ -1,6 +1,6 @@
 <% title 'Sign In' %>
  
-<% semantic_form_for @user_session, :url => user_session_path do |f| %>
+<% semantic_form_for :user, @user_session, :url => user_session_path do |f| %>
 
   <% flash[:error] = f.error_messages %>
   
