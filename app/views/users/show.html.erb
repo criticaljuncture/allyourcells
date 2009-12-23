@@ -1,8 +1,9 @@
-<dl>Username:</dl>
-<dt><%=h @user.login %></dt>
+<dl>
+  <dt>Username:</dt>
+  <dd><%=h @user.login %></dd>
 
-<dl>Email:</dl>
-<dt><%=h @user.email %></dt>
-
+  <dt>Email:</dt>
+  <dd><%= @user.email %></dd>
+</dl>
 
 <%= link_to 'Change password', edit_account_path %>
