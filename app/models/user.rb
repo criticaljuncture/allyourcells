@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
   attr_accessor :has_account
   attr_accessor :auto_generated
   
+  has_many :cell_sites, :foreign_key => :creator_id
   validates_presence_of   :email
   validates_uniqueness_of :login, :allow_nil => true 
   
