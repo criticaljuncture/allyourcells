@@ -41,8 +41,9 @@
 <div class="grid_4 omega">
   <h2>Recently Submitted</h2>
   <ul class="entries">
-    <li><span class="count">CA</span><a href="http://allyourcells.com/cell_sites/21207">101 199 Osage St, San Francisco, CA</a></li>
-    <li><span class="count">CA</span><a href="http://allyourcells.com/cell_sites/4481">262 Funston Ave, San Francisco, CA</a></li>
+    <% @recently_added.each do |cell_site| %>
+      <li><span class="count"><%= cell_site.state %></span> <%= link_to cell_site.full_address, cell_site_path(cell_site) %></li>
+    <% end %>
   </ul>
   
   <!-- <h2>Most saturated</h2>
