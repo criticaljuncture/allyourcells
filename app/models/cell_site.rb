@@ -26,6 +26,10 @@ class CellSite < ActiveRecord::Base
     self.photo = temp_file
   end
   
+  def full_address
+    [address, city, county, state].reject(&:blank?).join(', ')
+  end
+  
   def address2
     address2 = []
     if city.present? 
