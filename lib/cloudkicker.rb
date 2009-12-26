@@ -109,8 +109,21 @@ module Cloudkicker
           success: add_markers
         });
       }
-      JS
       
+      if (self.document.location.hash) {
+        var params = {};
+        $.each(self.document.location.hash.split(/&/), function(i, key_and_val){
+          var results = key_and_val.split(/=/);
+          var key = results[0].replace(/^#/, '');
+          var val = results[1];
+          params[key] = val;
+        });
+        if (params.center_lat && params.center_lng && params.zoom) {
+          map.setCenter(new CM.LatLng(params.center_lat, params.center_lng), params.zoom);
+        }
+      }
+      else {
+      JS
       
       if @bounds 
         if @bound_points.size > 1
@@ -133,28 +146,11 @@ module Cloudkicker
         end
       end
       
-      js << <<-JS
-      
-      if (self.document.location.hash) {
-        var params = {};
-        $.each(self.document.location.hash.split(/&/), function(i, key_and_val){
-          var results = key_and_val.split(/=/);
-          var key = results[0].replace(/^#/, '');
-          var val = results[1];
-          params[key] = val;
-        });
-        if (params.center_lat && params.center_lng && params.zoom) {
-          map.setCenter(new CM.LatLng(params.center_lat, params.center_lng), params.zoom);
-        }
-      }
-      
-      JS
-      
       @markers.each do |marker|
         js << marker
       end
       
-
+      js << '}'   # end else for location hash check
       js << '});' # end $(document).ready
       js << '</script>'
       js.join("\n")
