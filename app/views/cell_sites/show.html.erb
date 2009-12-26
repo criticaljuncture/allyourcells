@@ -34,6 +34,10 @@
       <% end %>
     <% end %>
   </dl>
+  <p>
+    <%= link_to('Previous', cell_site_path(@cell_site.previous)) if @cell_site.previous %>
+    <%= link_to('Next', cell_site_path(@cell_site.next)) if @cell_site.next %>
+  </p>
 </div>
 
 </div>

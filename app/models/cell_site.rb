@@ -52,6 +52,14 @@ class CellSite < ActiveRecord::Base
     photo.try(:url, :thumb)
   end
   
+  def previous
+    CellSite.from_active_user.first(:conditions => ['cell_sites.id < ?', id], :order => "cell_sites.id DESC")
+  end
+  
+  def next
+    CellSite.from_active_user.first(:conditions => ['cell_sites.id > ?', id], :order => "cell_sites.id")
+  end
+  
   private
   def reverse_geocode
     res=GoogleGeocoder.reverse_geocode([lat, lng])
