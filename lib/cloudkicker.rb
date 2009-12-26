@@ -27,6 +27,17 @@ module Cloudkicker
       js << "   var added_markers = [];"
       js << "   $('.loader').show();"
       
+      js << <<-JS
+      
+      $('.link_to_page').click(function(){
+        var center = map.getCenter();
+        var anchor = '#center_lat=' + center.lat() + '&center_lng=' + center.lng() + '&zoom=' + map.getZoom();
+        window.location.hash = anchor;
+        return false;
+      });
+      
+      JS
+      
       #add load event
       js << "   CM.Event.addListener(map, 'load', function() {"
       js << "     getMapPoints(map.getBounds());"
@@ -121,6 +132,23 @@ module Cloudkicker
           js << '   map.addControl(new CM.SmallMapControl(), topRight);'
         end
       end
+      
+      js << <<-JS
+      
+      if (self.document.location.hash) {
+        var params = {};
+        $.each(self.document.location.hash.split(/&/), function(i, key_and_val){
+          var results = key_and_val.split(/=/);
+          var key = results[0].replace(/^#/, '');
+          var val = results[1];
+          params[key] = val;
+        });
+        if (params.center_lat && params.center_lng && params.zoom) {
+          map.setCenter(new CM.LatLng(params.center_lat, params.center_lng), params.zoom);
+        }
+      }
+      
+      JS
       
       @markers.each do |marker|
         js << marker
