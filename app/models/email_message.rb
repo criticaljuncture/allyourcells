@@ -28,7 +28,12 @@ class EmailMessage
     
     @connection = Net::IMAP.new(options[:address])
     @connection.login(options[:user_name], options[:password]) 
-    @connection.select('Inbox')
+    
+    set_mailbox('Inbox')
+  end
+  
+  def self.set_mailbox(mailbox)
+    @connection.select(mailbox)
   end
   
   def self.connection

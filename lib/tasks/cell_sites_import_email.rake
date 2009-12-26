@@ -3,7 +3,11 @@ namespace :cell_sites do
     task :email => :environment do
       config = YAML::load(File.open("#{RAILS_ROOT}/config/mail.yml"))
       EmailMessage.connect(config['imap'])
-    
+      
+      if RAILS_ENV == 'development'
+        EmailMessage.set_mailbox('processed')
+      end
+      
       EmailSubmission.all.each do |email_submission| 
         if email_submission.save
           puts "#{email_submission.message_id} SAVED"
