@@ -1,5 +1,6 @@
 class CellSitesController < ApplicationController
   include Geokit
+  before_filter :log_map_movement, :if => Proc.new{|request| request.params[:fields] && request.params[:fields]=='limited'}
   
   def show
     @cell_site = CellSite.from_active_user.find(params[:id])
@@ -20,6 +21,7 @@ class CellSitesController < ApplicationController
       wants.html { redirect_to root_url }
       wants.js do
         if params[:fields] == "limited"
+          #search"=>{"conditions"=>{"within_bounds"=>{"ne_point"=>["37.54131068652799", "-122.09415435791016"], "sw_point"=>["37.43370410313641", "-122.36366271972656"]}, "descend_by_created_at"=>"1"}
           render :json => @cell_sites.to_json(:only => [:lat, :lng, :licensee, :address, :id], :methods => [:address2, :thumbnail_url, :tower]) 
         else
           render :json => @cell_sites
@@ -31,6 +33,16 @@ class CellSitesController < ApplicationController
         rows = [columns.to_csv] + @cell_sites.map{|site| columns.map{|column| site.send(column)}.to_csv}
         render :text => rows
       end
+    end
+  end
+  
+  private
+  
+  def log_map_movement
+    if Rails.logger.respond_to?(:add_metadata)
+      Rails.logger.add_metadata(:map => {:bounds => {:ne_point => params[:search][:conditions][:within_bounds][:ne_point],
+                                                     :sw_point => params[:search][:conditions][:within_bounds][:sw_point]}
+                                        })
     end
   end
 end
