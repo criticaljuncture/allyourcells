@@ -27,3 +27,6 @@ config.action_mailer.default_url_options = {:host => "allyourcells.com"}
 
 # Enable threaded mode
 # config.threadsafe!
+
+# use mongo as rails log
+config.logger = MongoLogger.new(2)
