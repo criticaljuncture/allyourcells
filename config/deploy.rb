@@ -40,8 +40,9 @@ role :db , domain, {:primary => true}
 #############################################################
 
 set :remote_db_name, "allyourcells_production"
+set :db_dump_name,   "#{remote_db_name}_#{Time.now.strftime('%Y%m%d')}.sql"
 set :db_path,        "#{shared_path}/db"
-set :sql_file_path,  "#{shared_path}/db/#{remote_db_name}_#{Time.now}.sql"
+set :sql_file_path,  "#{db_path}/#{db_dump_name}"
 
 
 #############################################################
@@ -285,7 +286,7 @@ namespace :database do
 
   desc "Load the staging database locally"
   task :load_copy do
-    `script/dbconsole -p < tmp/#{remote_db_name}.sql`
+    `script/dbconsole -p < tmp/#{db_dump_name}`
   end
 
 end #end namspace
