@@ -27,26 +27,18 @@ module Cloudkicker
       js << "   var added_markers = [];"
       js << "   $('.loader').show();"
       
-      js << <<-JS
-      
-      $('.link_to_page').click(function(){
-        var center = map.getCenter();
-        var anchor = '#center_lat=' + center.lat() + '&center_lng=' + center.lng() + '&zoom=' + map.getZoom();
-        window.location.hash = anchor;
-        return false;
-      });
-      
-      JS
-      
       #add load event
       js << "   CM.Event.addListener(map, 'load', function() {"
       js << "     getMapPoints(map.getBounds());"
       js << "   });"
       
-      js << "   CM.Event.addListener(map, 'dragend', function() {"
-      js << "     $('.loader img').show();"
-      js << "     getMapPoints(map.getBounds());"
-      js << "   });"
+      js << <<-JS
+          CM.Event.addListener(map, 'dragend', function() {
+            $('.loader img').show();
+            getMapPoints(map.getBounds());
+            add_location_to_anchor(map);
+          });
+      JS
       
       js << <<-JS
       function add_markers(markers) {
@@ -152,10 +144,20 @@ module Cloudkicker
       
       js << '}'   # end else for location hash check
       js << '});' # end $(document).ready
+      
+      js << <<-JS
+        function add_location_to_anchor(map){
+          var center = map.getCenter();
+          var anchor = '#center_lat=' + center.lat() + '&center_lng=' + center.lng() + '&zoom=' + map.getZoom();
+          window.location.hash = anchor;
+          return false;
+        }
+      JS
+      
       js << '</script>'
       js.join("\n")
     end
-  
+    
     def markers
       @markers
     end
