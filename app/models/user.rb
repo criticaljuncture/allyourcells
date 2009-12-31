@@ -32,14 +32,24 @@ class User < ActiveRecord::Base
     c.require_password_confirmation           = false
   end
   
+  define_completeness_scoring do
+    check :login,          lambda { |u| u.login.present?      }, :high
+    check :submitted_site, lambda { |u| u.cell_sites.present? }, :high
+    check :email,          lambda { |u| u.email.present? },      :medium
+  end
+  
+  
   attr_accessor :has_account
   attr_accessor :auto_generated
+  attr_accessor :setup_step
+  
+  attr_protected :username, :setup_step
   
   has_many :cell_sites, :foreign_key => :creator_id
   validates_presence_of   :email
   validates_uniqueness_of :login, :allow_nil => true 
   
-  validates_presence_of :password, :unless => Proc.new {|u| u.auto_generated }
+  validates_presence_of :password, :unless => Proc.new {|u| u.auto_generated || u.setup_step == 'username'}
   validates_length_of :password, :minimum => 6, :allow_nil => true
   
   attr_protected :active, :auto_generated

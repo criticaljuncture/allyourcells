@@ -1,21 +1,36 @@
-<dl>
-  <dt>Username:</dt>
-  <dd><%=h @user.login %></dd>
 
-  <dt>Email:</dt>
-  <dd><%= @user.email %></dd>
-</dl>
+<div class="grid_6 suffix_1 alpha" id='account_details'>
+  <h2>Account Details</h2>
 
-<%= link_to 'Change password', edit_account_path %>
+  <dl>
+    <dt>Username:</dt>
+    <dd><%= @user.login.present? ? h(@user.login) : link_to('Add username', new_user_username_path(@user)) %></dd>
 
-<h2>Uploaded Cell Sites</h2>
+    <dt>Email:</dt>
+    <dd><%= @user.email %></dd>
+    
+    <dt>Password:</dt>
+    <dd><%= link_to 'Change password', edit_account_path %></dd>
+  </dl>
 
-<% if @user.cell_sites.present? %>
-  <ul>
-    <% @user.cell_sites.each do |cell_site| %>
-    <li><%= link_to image_tag(cell_site.photo.url(:thumb)), cell_site_path(cell_site) %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No cell sites have been uploaded yet!</p>
-<% end %>
+  <h2>Submitted Cell Sites</h2>
+
+  <% if @user.cell_sites.present? %>
+    <ul class='entries'>
+      <% @user.cell_sites.each do |cell_site| %>
+        <li>
+          <p>
+            Submitted on:   <%= cell_site.created_at.strftime('%m/%d/%Y') %><br />
+            Submitted from: <%= cell_site.address  %><br />
+                            <%= cell_site.address2 %>
+            <%= link_to image_tag(cell_site.photo.url(:thumb)), cell_site_path(cell_site) %>
+          </p>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No cell sites have been uploaded yet!</p>
+  <% end %>
+</div>
+
+<%= render :partial => 'users/completeness', :locals => {:user => @user} %>

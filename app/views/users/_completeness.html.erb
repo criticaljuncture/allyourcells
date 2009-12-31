@@ -1,0 +1,17 @@
+<div class="grid_5 omega" id="completeness">
+  <h3>Your account is <%= user.percent_complete == 100 ? '' : 'only' %> <%= user.percent_complete.floor %>% complete</h3>
+  
+  <% if user.failed_checks.present? %>
+    <ul>
+    <% user.failed_checks.each do |failed_check| %>  
+      <% failed_check.each_pair do |key, value| %>
+        <% if key == :extra %>
+          <li>
+            <%= value %>
+          </li>
+        <% end %>
+      <% end %>
+    <% end %>
+    </ul>
+  <% end %>
+</div>

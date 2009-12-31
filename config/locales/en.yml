@@ -1,7 +1,18 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 en:
+  completeness_scoring:
+    models:
+      user:
+        login:
+          title: 'Username'
+          description: 'Your username is public and displayed on cell sites that you submit'
+          extra: 'You should choose a username!'
+        submitted_site:
+          title: 'Submitted Cell Site'
+          description: 'Your username is public and displayed on cell sites that you submit'
+          extra: "You haven't submitted any cell sites!"
   activerecord:
-    attributes: 
+    attributes:
       cell_site:
         photo_md5_hash: Photo

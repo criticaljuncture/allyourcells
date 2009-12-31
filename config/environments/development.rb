@@ -19,4 +19,10 @@ config.action_mailer.raise_delivery_errors = true
 config.action_mailer.default_url_options = {:host => "localhost:3000"}
 
 
-config.action_controller.asset_host = 'http://allyourcells.com'
+config.action_controller.asset_host =  Proc.new { |source|
+                                                   if source.starts_with?('/stylesheets/')
+                                                     ""
+                                                   else
+                                                     "http://allyourcells.com"
+                                                   end
+                                                 }

@@ -1,0 +1,11 @@
+<h1>Add Username</h1>
+
+<% semantic_form_for @user, :url => user_username_path, :html => {:method => :post} do |f| %>
+  <% flash[:error] = f.error_messages %>
+  <% f.inputs do %>
+    <%= f.input :login, :label => 'Username' %>
+  <% end %>
+  <%= f.submit "Create" %>
+<% end %>
+ 
+<%= link_to "My Account", account_path %>

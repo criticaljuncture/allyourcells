@@ -9,7 +9,9 @@ ActionController::Routing::Routes.draw do |map|
   
   # USERS
   map.resource :account, :controller => "users"
-  map.resources :users
+  map.resources :users do |user|
+    user.resource :username, :only => [:new, :create], :controller => 'users/username'
+  end
   
   # CELL SITES
   map.resources :cell_sites

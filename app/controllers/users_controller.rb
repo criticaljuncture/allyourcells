@@ -25,8 +25,26 @@ class UsersController < ApplicationController
     @user = @current_user
   end
   
+  def new_username
+    @user = current_user
+  end
+  
+  def create_username
+    if @user.login.present?
+      flash[:error] = 'You can not change your username at this time'
+      redirect_to account_url
+    end
+    
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "Account updated!"
+      redirect_to account_url
+    end
+    
+  end
+  
   def update
     @user = @current_user # makes our views "cleaner" and more consistent
+    
     if @user.update_attributes(params[:user])
       flash[:notice] = "Account updated!"
       redirect_to account_url
@@ -34,4 +52,5 @@ class UsersController < ApplicationController
       render :action => :edit
     end
   end
+  
 end
