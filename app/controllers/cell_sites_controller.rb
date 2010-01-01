@@ -1,6 +1,5 @@
 class CellSitesController < ApplicationController
   include Geokit
-  before_filter :log_map_movement, :if => Proc.new{|request| request.params[:fields] && request.params[:fields]=='limited'}
   
   def show
     @cell_site = CellSite.from_active_user.find(params[:id])
@@ -36,13 +35,4 @@ class CellSitesController < ApplicationController
     end
   end
   
-  private
-  
-  def log_map_movement
-    if Rails.logger.respond_to?(:add_metadata)
-      Rails.logger.add_metadata(:map => {:bounds => {:ne_point => params[:search][:conditions][:within_bounds][:ne_point],
-                                                     :sw_point => params[:search][:conditions][:within_bounds][:sw_point]}
-                                        })
-    end
-  end
 end
