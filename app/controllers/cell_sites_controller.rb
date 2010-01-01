@@ -20,6 +20,7 @@ class CellSitesController < ApplicationController
       wants.html { redirect_to root_url }
       wants.js do
         if params[:fields] == "limited"
+          #search"=>{"conditions"=>{"within_bounds"=>{"ne_point"=>["37.54131068652799", "-122.09415435791016"], "sw_point"=>["37.43370410313641", "-122.36366271972656"]}, "descend_by_created_at"=>"1"}
           render :json => @cell_sites.to_json(:only => [:lat, :lng, :licensee, :address, :id], :methods => [:address2, :thumbnail_url, :tower]) 
         else
           render :json => @cell_sites
@@ -33,4 +34,5 @@ class CellSitesController < ApplicationController
       end
     end
   end
+  
 end

@@ -16,3 +16,6 @@
 [submodule "vendor/plugins/completeness-fu"]
 	path = vendor/plugins/completeness-fu
 	url = git://github.com/joshk/completeness-fu.git
+[submodule "vendor/plugins/mongo_db_logger"]
+	path = vendor/plugins/mongo_db_logger
+	url = git@github.com:peregrinator/mongo_db_logger.git
