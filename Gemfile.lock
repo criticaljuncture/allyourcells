@@ -1,0 +1,109 @@
+--- 
+dependencies: 
+  fastercsv: 
+    group: 
+    - :default
+    version: = 1.5.0
+  rails: 
+    group: 
+    - :default
+    version: = 2.3.5
+    require: []
+
+  mongrel: 
+    group: 
+    - :development
+    version: ">= 0"
+  searchlogic: 
+    group: 
+    - :default
+    version: = 2.3.9
+  mysql: 
+    group: 
+    - :default
+    version: = 2.7
+  authlogic: 
+    group: 
+    - :default
+    version: = 2.1.2
+  geokit: 
+    group: 
+    - :default
+    version: = 1.5.0
+  rack: 
+    group: 
+    - :default
+    version: = 1.0.1
+  exifr: 
+    group: 
+    - :default
+    version: = 0.10.9
+  paperclip: 
+    group: 
+    - :default
+    version: = 2.3.1.1
+  will_paginate: 
+    group: 
+    - :default
+    version: = 2.3.11
+  bcrypt-ruby: 
+    group: 
+    - :default
+    version: = 2.1.2
+    require: 
+    - bcrypt
+  rails-footnotes: 
+    group: 
+    - :development
+    version: ">= 0"
+specs: 
+- rake: 
+    version: 0.8.7
+- activesupport: 
+    version: 2.3.5
+- rack: 
+    version: 1.0.1
+- actionpack: 
+    version: 2.3.5
+- actionmailer: 
+    version: 2.3.5
+- activerecord: 
+    version: 2.3.5
+- activeresource: 
+    version: 2.3.5
+- authlogic: 
+    version: 2.1.2
+- bcrypt-ruby: 
+    version: 2.1.2
+- cgi_multipart_eof_fix: 
+    version: 2.5.0
+- daemons: 
+    version: 1.1.0
+- exifr: 
+    version: 0.10.9
+- fastercsv: 
+    version: 1.5.0
+- fastthread: 
+    version: 1.0.7
+- gem_plugin: 
+    version: 0.2.3
+- geokit: 
+    version: 1.5.0
+- mongrel: 
+    version: 1.1.5
+- mysql: 
+    version: "2.7"
+- paperclip: 
+    version: 2.3.1.1
+- rails: 
+    version: 2.3.5
+- rails-footnotes: 
+    version: 3.6.7
+- searchlogic: 
+    version: 2.3.9
+- will_paginate: 
+    version: 2.3.11
+hash: 8242b19fa9173f63d38fb79d4b438d284a3444bd
+sources: 
+- Rubygems: 
+    uri: http://gemcutter.org

@@ -6,3 +6,4 @@ config/mail.yml
 public/system
 config/*.yml
 config/initializers/cloudkicker_config.rb
+.bundle
