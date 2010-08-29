@@ -14,38 +14,38 @@ dependencies:
     group: 
     - :development
     version: ">= 0"
-  searchlogic: 
-    group: 
-    - :default
-    version: = 2.3.9
-  mysql: 
-    group: 
-    - :default
-    version: = 2.7
   authlogic: 
     group: 
     - :default
     version: = 2.1.2
-  geokit: 
+  mysql: 
     group: 
     - :default
-    version: = 1.5.0
+    version: = 2.7
+  searchlogic: 
+    group: 
+    - :default
+    version: = 2.3.9
   rack: 
     group: 
     - :default
     version: = 1.0.1
-  exifr: 
+  geokit: 
     group: 
     - :default
-    version: = 0.10.9
-  paperclip: 
-    group: 
-    - :default
-    version: = 2.3.1.1
+    version: = 1.5.0
   will_paginate: 
     group: 
     - :default
     version: = 2.3.11
+  paperclip: 
+    group: 
+    - :default
+    version: = 2.3.1.1
+  exifr: 
+    group: 
+    - :default
+    version: = 0.10.9
   bcrypt-ruby: 
     group: 
     - :default
@@ -56,6 +56,12 @@ dependencies:
     group: 
     - :development
     version: ">= 0"
+  thunder_punch: 
+    group: 
+    - :default
+    version: = 0.0.6
+    require: []
+
 specs: 
 - rake: 
     version: 0.8.7
@@ -75,6 +81,18 @@ specs:
     version: 2.1.2
 - bcrypt-ruby: 
     version: 2.1.2
+- highline: 
+    version: 1.6.1
+- net-ssh: 
+    version: 2.0.23
+- net-scp: 
+    version: 1.0.3
+- net-sftp: 
+    version: 2.0.5
+- net-ssh-gateway: 
+    version: 1.0.1
+- capistrano: 
+    version: 2.5.19
 - cgi_multipart_eof_fix: 
     version: 2.5.0
 - daemons: 
@@ -101,9 +119,11 @@ specs:
     version: 3.6.7
 - searchlogic: 
     version: 2.3.9
+- thunder_punch: 
+    version: 0.0.6
 - will_paginate: 
     version: 2.3.11
-hash: 8242b19fa9173f63d38fb79d4b438d284a3444bd
+hash: 4a6326975a0a114cdd6245a01e319b9525b624b1
 sources: 
 - Rubygems: 
     uri: http://gemcutter.org

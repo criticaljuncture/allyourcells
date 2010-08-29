@@ -19,6 +19,9 @@ gem "geokit", '1.5.0'
 gem "authlogic",   '=2.1.2'
 gem 'bcrypt-ruby', '=2.1.2', :require => 'bcrypt'
 
+#deployment
+gem 'thunder_punch', '0.0.6', :require => false
+
 group :development do
   gem 'mongrel'
   gem 'rails-footnotes'
