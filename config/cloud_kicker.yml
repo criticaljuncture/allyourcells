@@ -1,0 +1,23 @@
+map:
+  lat:  37.778605
+  long: -122.391369
+  zoom: 10
+  style:
+    id: 2
+  
+  map_control:
+    visible: true
+    type: :large
+  bounds:                    
+    enabled: false
+    zoom: 2 #used when only a single point is passed to bound_points
+  bookmarking:
+    enabled: true
+  
+  markers:              
+    ajax: 
+      enabled: true
+      url: '/cell_sites.js'
+  
+  scroll_wheel_zoom:
+    enabled: false
