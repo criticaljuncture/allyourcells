@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_location
   
   # use mongo as rails log
-  include MongoDBLogging
+  # include MongoDBLogging
   
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
