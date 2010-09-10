@@ -14,13 +14,15 @@ gem 'will_paginate', '2.3.11'
 
 # geo
 gem "geokit", '1.5.0'
+gem 'cloud_kicker', '0.0.2'
 
 # authentication
 gem "authlogic",   '=2.1.2'
 gem 'bcrypt-ruby', '=2.1.2', :require => 'bcrypt'
 
-#deployment
-gem 'thunder_punch', '0.0.6', :require => false
+group :deployment do
+  gem 'thunder_punch',    '0.0.10', :require => false
+end
 
 group :development do
   gem 'mongrel'

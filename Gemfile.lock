@@ -1,129 +1,80 @@
---- 
-dependencies: 
-  fastercsv: 
-    group: 
-    - :default
-    version: = 1.5.0
-  rails: 
-    group: 
-    - :default
-    version: = 2.3.5
-    require: []
+GEM
+  remote: http://rubygems.org/
+  specs:
+    actionmailer (2.3.5)
+      actionpack (= 2.3.5)
+    actionpack (2.3.5)
+      activesupport (= 2.3.5)
+      rack (~> 1.0.0)
+    activerecord (2.3.5)
+      activesupport (= 2.3.5)
+    activeresource (2.3.5)
+      activesupport (= 2.3.5)
+    activesupport (2.3.5)
+    authlogic (2.1.2)
+      activesupport
+    bcrypt-ruby (2.1.2)
+    capistrano (2.5.19)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.0.0)
+    cgi_multipart_eof_fix (2.5.0)
+    cloud_kicker (0.0.2)
+    daemons (1.1.0)
+    exifr (0.10.9)
+    fastercsv (1.5.0)
+    fastthread (1.0.7)
+    gem_plugin (0.2.3)
+    geokit (1.5.0)
+    highline (1.6.1)
+    mongrel (1.1.5)
+      cgi_multipart_eof_fix (>= 2.4)
+      daemons (>= 1.0.3)
+      fastthread (>= 1.0.1)
+      gem_plugin (>= 0.2.3)
+    mysql (2.7)
+    net-scp (1.0.3)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.0.23)
+    net-ssh-gateway (1.0.1)
+      net-ssh (>= 1.99.1)
+    paperclip (2.3.1.1)
+    rack (1.0.1)
+    rails (2.3.5)
+      actionmailer (= 2.3.5)
+      actionpack (= 2.3.5)
+      activerecord (= 2.3.5)
+      activeresource (= 2.3.5)
+      activesupport (= 2.3.5)
+      rake (>= 0.8.3)
+    rails-footnotes (3.6.7)
+    rake (0.8.7)
+    searchlogic (2.3.9)
+      activerecord (>= 2.0.0)
+    thunder_punch (0.0.10)
+      capistrano (>= 2.5.5)
+    will_paginate (2.3.11)
 
-  mongrel: 
-    group: 
-    - :development
-    version: ">= 0"
-  authlogic: 
-    group: 
-    - :default
-    version: = 2.1.2
-  mysql: 
-    group: 
-    - :default
-    version: = 2.7
-  searchlogic: 
-    group: 
-    - :default
-    version: = 2.3.9
-  rack: 
-    group: 
-    - :default
-    version: = 1.0.1
-  geokit: 
-    group: 
-    - :default
-    version: = 1.5.0
-  will_paginate: 
-    group: 
-    - :default
-    version: = 2.3.11
-  paperclip: 
-    group: 
-    - :default
-    version: = 2.3.1.1
-  exifr: 
-    group: 
-    - :default
-    version: = 0.10.9
-  bcrypt-ruby: 
-    group: 
-    - :default
-    version: = 2.1.2
-    require: 
-    - bcrypt
-  rails-footnotes: 
-    group: 
-    - :development
-    version: ">= 0"
-  thunder_punch: 
-    group: 
-    - :default
-    version: = 0.0.6
-    require: []
+PLATFORMS
+  ruby
 
-specs: 
-- rake: 
-    version: 0.8.7
-- activesupport: 
-    version: 2.3.5
-- rack: 
-    version: 1.0.1
-- actionpack: 
-    version: 2.3.5
-- actionmailer: 
-    version: 2.3.5
-- activerecord: 
-    version: 2.3.5
-- activeresource: 
-    version: 2.3.5
-- authlogic: 
-    version: 2.1.2
-- bcrypt-ruby: 
-    version: 2.1.2
-- highline: 
-    version: 1.6.1
-- net-ssh: 
-    version: 2.0.23
-- net-scp: 
-    version: 1.0.3
-- net-sftp: 
-    version: 2.0.5
-- net-ssh-gateway: 
-    version: 1.0.1
-- capistrano: 
-    version: 2.5.19
-- cgi_multipart_eof_fix: 
-    version: 2.5.0
-- daemons: 
-    version: 1.1.0
-- exifr: 
-    version: 0.10.9
-- fastercsv: 
-    version: 1.5.0
-- fastthread: 
-    version: 1.0.7
-- gem_plugin: 
-    version: 0.2.3
-- geokit: 
-    version: 1.5.0
-- mongrel: 
-    version: 1.1.5
-- mysql: 
-    version: "2.7"
-- paperclip: 
-    version: 2.3.1.1
-- rails: 
-    version: 2.3.5
-- rails-footnotes: 
-    version: 3.6.7
-- searchlogic: 
-    version: 2.3.9
-- thunder_punch: 
-    version: 0.0.6
-- will_paginate: 
-    version: 2.3.11
-hash: 4a6326975a0a114cdd6245a01e319b9525b624b1
-sources: 
-- Rubygems: 
-    uri: http://gemcutter.org
+DEPENDENCIES
+  authlogic (= 2.1.2)
+  bcrypt-ruby (= 2.1.2)
+  cloud_kicker (= 0.0.2)
+  exifr (= 0.10.9)
+  fastercsv (= 1.5.0)
+  geokit (= 1.5.0)
+  mongrel
+  mysql (= 2.7)
+  paperclip (= 2.3.1.1)
+  rack (= 1.0.1)
+  rails (= 2.3.5)
+  rails-footnotes
+  searchlogic (= 2.3.9)
+  thunder_punch (= 0.0.10)
+  will_paginate (= 2.3.11)

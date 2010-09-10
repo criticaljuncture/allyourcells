@@ -1,9 +1,8 @@
-# this is needed for running capistrano locally on a server
-# without it all our gems aren't avail to be loaded below
-require File.expand_path(File.join(File.dirname(__FILE__), "..", ".bundle", "environment"))
+require "bundler"
+Bundler.setup(:default, :deployment)
 
 # hoptoad deploy notifications, etc
-#require 'hoptoad_notifier/capistrano'
+require 'hoptoad_notifier/capistrano'
 
 # deploy recipes - need to do `sudo gem install thunder_punch` - these should be required last
 require 'thunder_punch'
@@ -104,6 +103,13 @@ set :github_username, 'criticaljuncture'
 # This will execute the Git revision parsing on the *remote* server rather than locally
 set :real_revision, lambda { source.query_revision(revision) { |cmd| capture(cmd) } }
 set :git_enable_submodules, true
+
+
+#############################################################
+# Bundler
+#############################################################
+
+set(:gem_file_groups) { [:development] }
 
 
 #############################################################

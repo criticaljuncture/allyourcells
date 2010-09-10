@@ -7,3 +7,4 @@ public/system
 config/*.yml
 config/initializers/cloudkicker_config.rb
 .bundle
+vendor/bundle
