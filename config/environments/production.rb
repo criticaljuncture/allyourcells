@@ -29,10 +29,10 @@ config.action_mailer.default_url_options = {:host => "allyourcells.com"}
 # config.threadsafe!
 
 # use mongo as rails log
-if defined?(PhusionPassenger)
-  PhusionPassenger.on_event(:starting_worker_process) do |forked|
-    if forked
-      config.logger = MongoLogger.new(2) # 2 = WARN see activesupport-2.3.5/lib/active_support/buffered_logger.rb for severity constant values
-    end
-  end
-end
+# if defined?(PhusionPassenger)
+#   PhusionPassenger.on_event(:starting_worker_process) do |forked|
+#     if forked
+#       config.logger = MongoLogger.new(2) # 2 = WARN see activesupport-2.3.5/lib/active_support/buffered_logger.rb for severity constant values
+#     end
+#   end
+# end
