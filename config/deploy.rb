@@ -2,9 +2,9 @@ require "bundler"
 Bundler.setup(:default, :deployment)
 
 # hoptoad deploy notifications, etc
-require 'hoptoad_notifier/capistrano'
+#require 'hoptoad_notifier/capistrano'
 
-# deploy recipes - need to do `sudo gem install thunder_punch` - these should be required last
+# deploy recipes
 require 'thunder_punch'
 
 
