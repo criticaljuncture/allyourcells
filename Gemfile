@@ -1,9 +1,9 @@
 # you need to run bundle lock after editing
 
-source :gemcutter
+source :rubygems
 
-gem 'rails',         '2.3.5',    :require => nil
-gem 'rack',          '1.0.1'     
+gem 'rails',         '2.3.14',    :require => nil
+gem 'rack',          '1.1.0'     
 gem 'mysql',         '2.7'
 
 gem 'paperclip',     '2.3.1.1'
